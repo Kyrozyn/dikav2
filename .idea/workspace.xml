@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="40e9717b-07cc-4e95-9b6f-a9d5aca6ab76" name="Default Changelist" comment="" />
+    <list default="true" id="40e9717b-07cc-4e95-9b6f-a9d5aca6ab76" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/pengiriman/baru.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dikav2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dikav2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Counter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Counter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_21_063142_create_pengirimen_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/pagination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/passwords.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/counter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/counter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/template.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/template.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/vendor/composer" />
@@ -119,9 +141,24 @@
       <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/vendor/glhd/aire" />
+      <path value="$PROJECT_DIR$/vendor/glhd/aire-bootstrap" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kKlCF1H1D2HBmmLJLQFN1emvNa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -136,7 +173,7 @@
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner scope="XML" />
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" />
       <method v="2" />
     </configuration>
   </component>
@@ -149,6 +186,9 @@
       <option name="presentableId" value="Default" />
       <updated>1605457050428</updated>
       <workItem from="1605457053013" duration="4004000" />
+      <workItem from="1605681873634" duration="776000" />
+      <workItem from="1605788849046" duration="217000" />
+      <workItem from="1605857427422" duration="14158000" />
     </task>
     <servers />
   </component>
@@ -156,10 +196,38 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="517" y="292" key="NewPhpFileDialog" timestamp="1605458761517">
+    <state x="397" y="12" key="#PHP" timestamp="1605943618346">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738/0.-768.1366.768@0.0.1366.738" timestamp="1605458761517" />
+    <state x="397" y="12" key="#PHP/0.0.1366.738/0.-768.1366.768@0.0.1366.738" timestamp="1605943618346" />
+    <state x="561" y="267" key="Github.ShareDialog" timestamp="1605681953352">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="561" y="267" key="Github.ShareDialog/0.0.1366.738@0.0.1366.738" timestamp="1605681953352" />
+    <state x="433" y="74" key="Github.UntrackedFilesDialog" timestamp="1605682071055">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="433" y="74" key="Github.UntrackedFilesDialog/0.0.1366.738@0.0.1366.738" timestamp="1605682071055" />
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom" timestamp="1605943799074">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738/0.-768.1366.768@0.0.1366.738" timestamp="1605943799074" />
+    <state width="1323" height="182" key="GridCell.Tab.0.center" timestamp="1605943799074">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.center/0.0.1366.738/0.-768.1366.768@0.0.1366.738" timestamp="1605943799074" />
+    <state width="1323" height="182" key="GridCell.Tab.0.left" timestamp="1605943799074">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.left/0.0.1366.738/0.-768.1366.768@0.0.1366.738" timestamp="1605943799074" />
+    <state width="1323" height="182" key="GridCell.Tab.0.right" timestamp="1605943799074">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="182" key="GridCell.Tab.0.right/0.0.1366.738/0.-768.1366.768@0.0.1366.738" timestamp="1605943799074" />
+    <state x="517" y="292" key="NewPhpFileDialog" timestamp="1605938785001">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738/0.-768.1366.768@0.0.1366.738" timestamp="1605938785001" />
     <state x="184" y="14" key="SettingsEditor" timestamp="1605459776934">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

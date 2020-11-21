@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('template');
+    return view('pengiriman.baru');
+});
+Route::get('pengiriman/input', function () {
+    return view('pengiriman.baru');
 });
