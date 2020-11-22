@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Pengiriman;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pengiriman.baru');
+    echo "hai";
 });
 Route::get('pengiriman/input', function () {
     return view('pengiriman.baru');
-});
+})->name('pengiriman.create');
+
+Route::get('pengiriman/baru', function () {
+    return view('pengiriman.baru');
+})->name('pengiriman.edit');
+
+Route::get('pengiriman/destroy', function () {
+    return view('pengiriman.baru');
+})->name('pengiriman.destroy');
+
+Route::post('pengiriman/baruaction', [Pengiriman::class, 'baruaction']);
+Route::get('pengiriman/baru', [Pengiriman::class, 'baru']);
+Route::get('pengiriman/lihat', [Pengiriman::class, 'lihat'])->name("pengirimen.index");
