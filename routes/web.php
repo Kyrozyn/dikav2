@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    echo "hai";
+    return redirect()->to('/pengiriman/lihat');
 });
 Route::get('pengiriman/input', function () {
     return view('pengiriman.baru');
