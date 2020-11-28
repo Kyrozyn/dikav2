@@ -4,8 +4,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Input Pengiriman Baru
-                <small>Untuk penginputan pengiriman baru</small>
+                Detail Pengiriman
+                <small></small>
             </h1>
         </section>
 
@@ -17,7 +17,7 @@
             <?php
             $date = new DateTime();
             ?>
-            {{Aire::open()->action(url('pengiriman/baru'))}}
+            {{Aire::open()->bind($pengiriman)->action(url('pengiriman/edit'))}}
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
                     {{Aire::input('no_resi','No Resi')->id('no_resi')->defaultValue('LS'.$date->getTimestamp().rand(0,9))->readOnly()}}
@@ -25,47 +25,42 @@
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::input('nama_pengirim','Nama Pengirim')->id('nama_pengirim')->required()}}
+                    {{Aire::input('nama_pengirim','Nama Pengirim')->id('nama_pengirim')->required()->readOnly()}}
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::input('nama_penerima','Nama Penerima')->id('nama_penerima')->required()}}
+                    {{Aire::input('nama_penerima','Nama Penerima')->id('nama_penerima')->required()->readOnly()}}
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::input('no_telp_pengirim','No Telp Pengirim')->id('no_telp_pengirim')->required()->pattern('[0-9]+')}}
+                    {{Aire::input('no_telp_pengirim','No Telp Pengirim')->id('no_telp_pengirim')->required()->pattern('[0-9]+')->readOnly()}}
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::input('no_telp_penerima','No Telp Penerima')->id('no_telp_penerima')->required()->pattern('[0-9]+')}}
+                    {{Aire::input('no_telp_penerima','No Telp Penerima')->id('no_telp_penerima')->required()->pattern('[0-9]+')->readOnly()}}
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::date('tgl_masuk','Tanggal Masuk')->id('tgl_masuk')->required()}}
+                    {{Aire::date('tgl_masuk','Tanggal Masuk')->id('tgl_masuk')->required()->readOnly()}}
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::input('deskripsi','Deskripsi')->id('deskripsi')->required()}}
+                    {{Aire::input('deskripsi','Deskripsi')->id('deskripsi')->required()->readOnly()}}
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::input('berat','Berat')->id('berat')->required()->pattern('[0-9]+')->append('Kg')}}
+                    {{Aire::input('berat','Berat')->id('berat')->required()->pattern('[0-9]+')->readOnly()->append('Kg')}}
                 </div>
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::input('harga','Harga')->id('harga')->required()->pattern('[0-9]+')->prepend('Rp. ')}}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col col-sm-12 col-lg-6">
-                    {{Aire::submit('Input Pengiriman')}}
+                    {{Aire::input('harga','Harga')->id('harga')->required()->pattern('[0-9]+')->readOnly()->prepend('Rp. ')}}
                 </div>
             </div>
             {{ Aire::close() }}

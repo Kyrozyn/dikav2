@@ -4,8 +4,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Input Pengiriman Baru
-                <small>Untuk penginputan pengiriman baru</small>
+                Edit Pengiriman
+                <small>Untuk mengedit data pengiriman</small>
             </h1>
         </section>
 
@@ -17,7 +17,7 @@
             <?php
             $date = new DateTime();
             ?>
-            {{Aire::open()->action(url('pengiriman/baru'))}}
+            {{Aire::open()->bind($pengiriman)->action(url('pengiriman/edit'))}}
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
                     {{Aire::input('no_resi','No Resi')->id('no_resi')->defaultValue('LS'.$date->getTimestamp().rand(0,9))->readOnly()}}
@@ -65,7 +65,7 @@
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::submit('Input Pengiriman')}}
+                    {{Aire::submit('Edit Pengiriman')}}
                 </div>
             </div>
             {{ Aire::close() }}

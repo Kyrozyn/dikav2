@@ -17,6 +17,12 @@ class CreateAkunsTable extends Migration
             $table->string('username')->primary();
             $table->string('password');
         });
+
+        DB::table('akuns')->insert(
+            [
+                ['username' => 'andika','password' => '12345678']
+            ]
+        );
     }
 
     /**

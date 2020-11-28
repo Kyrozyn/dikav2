@@ -17,7 +17,7 @@
                        type="text"
                        name="{{ $table->getSearchField() }}"
                        value="{{ $table->getRequest()->get($table->getSearchField()) }}"
-                       placeholder="@lang('Search by:') {{ $table->getSearchableTitles() }}"
+                       placeholder="@lang('Cari data')"
                        aria-label="@lang('Search by:') {{ $table->getSearchableTitles() }}">
                 @if($table->getRequest()->get($table->getSearchField()))
                     <div class="input-group-append">
@@ -35,7 +35,7 @@
                 @else
                     <div class="input-group-append">
                         <span class="input-group-text py-0">
-                            <button class="btn btn-link p-0 text-primary" type="submit" title="@lang('Search by:') {{ $table->getSearchableTitles() }}">
+                            <button class="btn btn-link p-0 text-primary" type="submit" title="@lang('Search by:')">
                                 {!! config('laravel-table.icon.validate') !!}
                             </button>
                         </span>

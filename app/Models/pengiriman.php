@@ -9,4 +9,6 @@ class pengiriman extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $primaryKey = 'no_resi';
+    protected $keyType = 'string';
 }

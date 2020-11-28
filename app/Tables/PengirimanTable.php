@@ -22,9 +22,10 @@ class PengirimanTable extends AbstractTable
 //                'create'  => ['name' => 'pengiriman.create'],
                 'edit'    => ['name' => 'pengiriman.edit'],
                 'destroy' => ['name' => 'pengiriman.destroy'],
+                'show' => ['name' => 'pengiriman.show'],
             ])
             ->destroyConfirmationHtmlAttributes(fn(pengiriman $pengiriman) => [
-                'data-confirm' => __('Are you sure you want to delete the line ' . $pengiriman->database_attribute . ' ?'),
+                'onclick' => __("return confirm('Apa kamu yakin ingin menghapus resi ". $pengiriman->no_resi."? ')"),
             ]);
     }
 
@@ -43,9 +44,9 @@ class PengirimanTable extends AbstractTable
         $table->column('no_telp_pengirim')->sortable()->searchable()->title('No Telp Pengirim');
         $table->column('no_telp_penerima')->sortable()->searchable()->title('No Telp Penerima');
         $table->column('tgl_masuk')->sortable()->searchable()->title('Tanggal Masuk');
-        $table->column('deskripsi')->title('Deskipsi');
-        $table->column('berat')->title('Berat');
-        $table->column('harga')->title('Harga');
+//        $table->column('deskripsi')->title('Deskipsi');
+//        $table->column('berat')->title('Berat');
+//        $table->column('harga')->title('Harga');
     }
 
     /**

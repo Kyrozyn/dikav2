@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Akun;
 use App\Http\Controllers\Pengiriman;
 use Illuminate\Support\Facades\Route;
 
@@ -15,20 +16,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->to('/pengiriman/lihat');
+    return redirect()->to('/akun/login');
 });
-Route::get('pengiriman/input', function () {
-    return view('pengiriman.baru');
-})->name('pengiriman.create');
 
-Route::get('pengiriman/baru', function () {
-    return view('pengiriman.baru');
-})->name('pengiriman.edit');
+//akun
+Route::middleware(['cekLogin'])->group(function () {
+    Route::get('pengiriman/edit', [Pengiriman::class, 'edit'])->name('pengiriman.edit');
+    Route::post('pengiriman/edit', [Pengiriman::class, 'editaction'])->name('pengiriman.editaction');
+    Route::delete('pengiriman/destroy',[Pengiriman::class,'hapusaction'])->name('pengiriman.destroy');
+    Route::post('pengiriman/baru', [Pengiriman::class, 'baruaction']);
+    Route::get('pengiriman/baru', [Pengiriman::class, 'baru'])->name('pengiriman.create');
+    Route::get('pengiriman/lihat', [Pengiriman::class, 'lihat'])->name("pengirimen.index");
+    Route::get('pengiriman/show', [Pengiriman::class, 'show'])->name("pengiriman.show");
+});
 
-Route::get('pengiriman/destroy', function () {
-    return view('pengiriman.baru');
-})->name('pengiriman.destroy');
 
-Route::post('pengiriman/baruaction', [Pengiriman::class, 'baruaction']);
-Route::get('pengiriman/baru', [Pengiriman::class, 'baru']);
-Route::get('pengiriman/lihat', [Pengiriman::class, 'lihat'])->name("pengirimen.index");
+
+
+//akun
+Route::middleware([])->group(function () {
+    Route::get('akun/login',[Akun::class,'login']);
+    Route::post('akun/login',[Akun::class,'loginaction']);
+    Route::get('akun/logout',[Akun::class,'logout']);
+});
