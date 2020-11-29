@@ -27,7 +27,7 @@ namespace App\Models{
 /**
  * App\Models\akun
  *
- * @property string $username
+ * @property int $username
  * @property string $password
  * @method static \Illuminate\Database\Eloquent\Builder|akun newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|akun newQuery()
@@ -36,6 +36,29 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|akun whereUsername($value)
  */
 	class akun extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\kendaraan
+ *
+ * @property int $id_kendaraan
+ * @property string $nama_kendaraan
+ * @property int $kapasitas
+ * @property int $prioritas
+ * @property string $plat_kendaraan
+ * @property string $status
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan query()
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereIdKendaraan($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereKapasitas($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereNamaKendaraan($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan wherePlatKendaraan($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan wherePrioritas($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereStatus($value)
+ */
+	class kendaraan extends \Eloquent {}
 }
 
 namespace App\Models{

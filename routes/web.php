@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Akun;
+use App\Http\Controllers\Kendaraan;
 use App\Http\Controllers\Pengiriman;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,17 @@ Route::middleware(['cekLogin'])->group(function () {
     Route::get('pengiriman/show', [Pengiriman::class, 'show'])->name("pengiriman.show");
 });
 
+//kendaraan
+Route::middleware(['cekLogin'])->group(function () {
+    Route::get('kendaraan/lihat', [Kendaraan::class, 'lihat'])->name("kendaraans.index");
+    Route::get('kendaraan/baru', [Kendaraan::class, 'baru'])->name('kendaraans.create');
+    Route::post('kendaraan/baru', [Kendaraan::class, 'baruaction']);
+    Route::get('kendaraan/edit', [Kendaraan::class, 'edit'])->name('kendaraans.edit');
+    Route::post('kendaraan/edit', [Kendaraan::class, 'editaction'])->name('kendaraans.editaction');
+    Route::delete('kendaraan/destroy',[Kendaraan::class,'hapusaction'])->name('kendaraan.destroy');
+
+
+});
 
 
 

@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class akun extends Model
+class kendaraan extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $primaryKey = 'username';
+    protected $primaryKey = 'id_kendaraan';
 }
