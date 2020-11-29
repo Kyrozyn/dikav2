@@ -3,6 +3,7 @@
 use App\Http\Controllers\Akun;
 use App\Http\Controllers\Kendaraan;
 use App\Http\Controllers\Pengiriman;
+use App\Http\Controllers\Rekomendasi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,9 +40,9 @@ Route::middleware(['cekLogin'])->group(function () {
     Route::get('kendaraan/edit', [Kendaraan::class, 'edit'])->name('kendaraans.edit');
     Route::post('kendaraan/edit', [Kendaraan::class, 'editaction'])->name('kendaraans.editaction');
     Route::delete('kendaraan/destroy',[Kendaraan::class,'hapusaction'])->name('kendaraan.destroy');
-
-
 });
+
+Route::get('rekomendasi', [Rekomendasi::class, 'hitung'])->name('hitung');
 
 
 
