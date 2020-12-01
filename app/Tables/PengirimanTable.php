@@ -41,12 +41,14 @@ class PengirimanTable extends AbstractTable
         $table->column('no_resi')->sortable()->searchable()->title('No Resi');
         $table->column('nama_pengirim')->sortable()->searchable()->title('Nama Pengirim');
         $table->column('nama_penerima')->sortable()->searchable()->title('Nama Penerima');
-        $table->column('no_telp_pengirim')->sortable()->searchable()->title('No Telp Pengirim');
-        $table->column('no_telp_penerima')->sortable()->searchable()->title('No Telp Penerima');
+//        $table->column('no_telp_pengirim')->sortable()->searchable()->title('No Telp Pengirim');
+//        $table->column('no_telp_penerima')->sortable()->searchable()->title('No Telp Penerima');
         $table->column('tgl_masuk')->sortable()->searchable()->title('Tanggal Masuk');
 //        $table->column('deskripsi')->title('Deskipsi');
 //        $table->column('berat')->title('Berat');
 //        $table->column('harga')->title('Harga');
+        $table->column('status')->sortable()->title('Status');
+
     }
 
     /**

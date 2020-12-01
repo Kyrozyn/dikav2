@@ -23,6 +23,7 @@ class CreatePengirimenTable extends Migration
             $table->text('deskripsi');
             $table->integer('berat');
             $table->integer('harga');
+            $table->string('status');
         });
     }
 

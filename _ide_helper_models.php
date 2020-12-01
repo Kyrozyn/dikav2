@@ -74,6 +74,7 @@ namespace App\Models{
  * @property string $deskripsi
  * @property int $berat
  * @property int $harga
+ * @property string $status
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman query()
@@ -85,6 +86,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereNoResi($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereNoTelpPenerima($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereNoTelpPengirim($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereTglMasuk($value)
  */
 	class pengiriman extends \Eloquent {}

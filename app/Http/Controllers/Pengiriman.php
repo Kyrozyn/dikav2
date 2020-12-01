@@ -23,6 +23,7 @@ class Pengiriman extends Controller
         $pengiriman->deskripsi = $input['deskripsi'];
         $pengiriman->berat = $input['berat'];
         $pengiriman->harga = $input['harga'];
+        $pengiriman->status = $input['status'];
 
         if($pengiriman->save()){
             return redirect('pengiriman/lihat')->with('pesan','Data berhasil disimpan!');
@@ -58,6 +59,7 @@ class Pengiriman extends Controller
         $pengiriman->deskripsi = $input['deskripsi'];
         $pengiriman->berat = $input['berat'];
         $pengiriman->harga = $input['harga'];
+        $pengiriman->status = $input['status'];
 
         if($pengiriman->save()){
             return redirect('pengiriman/lihat')->with('pesan','Data berhasil diedit!');

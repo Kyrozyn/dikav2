@@ -65,6 +65,11 @@
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
+                    {{Aire::select(['Dikirim' => 'Dikirim','Terkirim' => 'Terkirim','Pending' => 'Pending'],'status','Status')->id('status')->required()}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-sm-12 col-lg-6">
                     {{Aire::submit('Input Pengiriman')}}
                 </div>
             </div>
