@@ -8,7 +8,6 @@ class Rekomendasi extends Controller
 {
     private function knapSolveFast2($w, $v, $i, $aW, &$m)
     {
-
         global $numcalls;
         $numcalls++;
         // echo "Called with i=$i, aW=$aW<br>";
@@ -80,9 +79,9 @@ class Rekomendasi extends Controller
         echo 'w4 = '.print_r($w4,1);
         echo 'items4 = '.print_r($items4,1);
         echo 'v4 = '.print_r($v4,1);
-//        $items4 = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
-//        $w4 = array(25, 3, 2, 4, 3, 2, 2, 10, 3, 8, 15, 8, 8, 8, 7, 8, 5, 7, 5);
-//        $v4 = array(280, 100, 60, 60, 60, 60, 60, 140, 80, 280, 340, 260, 250, 180, 200, 90, 150, 150, 120);
+        $items4 = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
+        $w4 = array(25, 3, 2, 4, 3, 2, 2, 10, 3, 8, 15, 8, 8, 8, 7, 8, 5, 7, 5);
+        $v4 = array(280, 100, 60, 60, 60, 60, 60, 140, 80, 280, 340, 260, 250, 180, 200, 90, 150, 150, 120);
 
 ## Initialize
         $numcalls = 0;
