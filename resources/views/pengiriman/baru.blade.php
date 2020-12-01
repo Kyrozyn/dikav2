@@ -14,13 +14,10 @@
             <!--------------------------
               | Your Page Content Here |
               -------------------------->
-            <?php
-            $date = new DateTime();
-            ?>
             {{Aire::open()->action(url('pengiriman/baru'))}}
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::input('no_resi','No Resi')->id('no_resi')->defaultValue('B'.$date->getTimestamp().rand(0,9))->readOnly()}}
+                    {{Aire::input('no_resi','No Resi')->id('no_resi')->defaultValue('B'.$count)->readOnly()}}
                 </div>
             </div>
             <div class="row">

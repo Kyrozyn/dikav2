@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class Pengiriman extends Controller
 {
     public function baru(){
-        return view('pengiriman.baru');
+        $count = \App\Models\pengiriman::all()->count() + 1;
+        return view('pengiriman.baru', compact('count'));
     }
 
     public function baruaction(Request $req){
