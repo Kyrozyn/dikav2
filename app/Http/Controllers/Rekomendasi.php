@@ -79,9 +79,9 @@ class Rekomendasi extends Controller
         echo 'w4 = '.print_r($w4,1);
         echo 'items4 = '.print_r($items4,1);
         echo 'v4 = '.print_r($v4,1);
-        $items4 = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
-        $w4 = array(25, 3, 2, 4, 3, 2, 2, 10, 3, 8, 15, 8, 8, 8, 7, 8, 5, 7, 5);
-        $v4 = array(280, 100, 60, 60, 60, 60, 60, 140, 80, 280, 340, 260, 250, 180, 200, 90, 150, 150, 120);
+//        $items4 = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
+//        $w4 = array(25, 3, 2, 4, 3, 2, 2, 10, 3, 8, 15, 8, 8, 8, 7, 8, 5, 7, 5);
+//        $v4 = array(280, 100, 60, 60, 60, 60, 60, 140, 80, 280, 340, 260, 250, 180, 200, 90, 150, 150, 120);
 
 ## Initialize
         $numcalls = 0;
@@ -92,14 +92,14 @@ class Rekomendasi extends Controller
         list ($m4, $pickedItems) = $this->knapSolveFast2($w4, $v4, sizeof($v4) - 1, 100, $m);
 
 # Display Result
-        echo "<b>Items:</b><br>" . join(", ", $items4) . "<br>";
-        echo "<b>Max Value Found:</b><br>$m4 (in $numcalls calls)<br>";
-        echo "<b>Array Indices:</b><br>" . join(",", $pickedItems) . "<br>";
+        echo "<b>Barang:</b><br>" . join(", ", $items4) . "<br>";
+        echo "<b>Harga paling tinggi:</b><br>$m4 (in $numcalls calls)<br>";
+        echo "<b>Array barang yang dipilih:</b><br>" . join(",", $pickedItems) . "<br>";
 
 
-        echo "<b>Chosen Items:</b><br>";
+        echo "<b>Barang yang terpilih:</b><br>";
         echo "<table border cellspacing=0>";
-        echo "<tr><td>Item</td><td>Value</td><td>Weight</td></tr>";
+        echo "<tr><td>Barang</td><td>Harga</td><td>Berat</td></tr>";
         $totalVal = $totalWt = 0;
         foreach ($pickedItems as $key) {
             $totalVal += $v4[$key];
@@ -107,7 +107,7 @@ class Rekomendasi extends Controller
             echo "<tr><td>" . $items4[$key] . "</td><td>" . $v4[$key] . "</td><td>" . $w4[$key] . "</td></tr>";
         }
 
-        echo "<tr><td align=right><b>Totals</b></td><td>$totalVal</td><td>$totalWt</td></tr>";
+        echo "<tr><td align=right><b>Total</b></td><td>$totalVal</td><td>$totalWt</td></tr>";
         echo "</table><hr>";
     }
 }
