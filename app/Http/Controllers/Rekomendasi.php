@@ -94,7 +94,7 @@ class Rekomendasi extends Controller
         list ($m4, $pickedItems) = $this->knapSolveFast2($w4, $v4, sizeof($v4) - 1, $kapasitas, $m);
 
 # Display Result
-        echo "<b>Kendaraan:</b> $kendaraan<br>";
+        echo "<b>Kendaraan:</b> $k->nama_kendaraan ($k->plat_kendaraan)<br>";
         echo "<b>Kapasitas:</b> $k->kapasitas<br>";
         echo "<b>Barang:</b><br>" . join(", ", $items4) . "<br>";
         echo "<b>Harga Total:</b><br>$m4<br>";
