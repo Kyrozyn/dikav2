@@ -65,8 +65,10 @@ class Rekomendasi extends Controller
         }
     }
 
-    public function hitung()
+    public function hitung($kendaraan)
     {
+        $k = \App\Models\kendaraan::whereIdKendaraan($kendaraan)->first();
+        $kapasitas = $k->kapasitas;
         $items4 = array();
         $w4 = array();
         $v4 = array();
@@ -76,9 +78,9 @@ class Rekomendasi extends Controller
             array_push($w4,$p->berat);
             array_push($v4,$p->harga);
         }
-        echo 'w4 = '.print_r($w4,1);
-        echo 'items4 = '.print_r($items4,1);
-        echo 'v4 = '.print_r($v4,1);
+//        echo 'w4 = '.print_r($w4,1);
+//        echo 'items4 = '.print_r($items4,1);
+//        echo 'v4 = '.print_r($v4,1);
 //        $items4 = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
 //        $w4 = array(25, 3, 2, 4, 3, 2, 2, 10, 3, 8, 15, 8, 8, 8, 7, 8, 5, 7, 5);
 //        $v4 = array(280, 100, 60, 60, 60, 60, 60, 140, 80, 280, 340, 260, 250, 180, 200, 90, 150, 150, 120);
@@ -89,14 +91,15 @@ class Rekomendasi extends Controller
         $pickedItems = array();
 
 ## Solve
-        list ($m4, $pickedItems) = $this->knapSolveFast2($w4, $v4, sizeof($v4) - 1, 100, $m);
+        list ($m4, $pickedItems) = $this->knapSolveFast2($w4, $v4, sizeof($v4) - 1, $kapasitas, $m);
 
 # Display Result
+        echo "<b>Kendaraan:</b> $kendaraan<br>";
+        echo "<b>Kapasitas:</b> $k->kapasitas<br>";
         echo "<b>Barang:</b><br>" . join(", ", $items4) . "<br>";
-        echo "<b>Harga paling tinggi:</b><br>$m4 (in $numcalls calls)<br>";
-        echo "<b>Array barang yang dipilih:</b><br>" . join(",", $pickedItems) . "<br>";
-
-
+        echo "<b>Harga Total:</b><br>$m4<br>";
+//        echo "<b>Harga Total:</b><br>$m4 (in $numcalls calls)<br>";
+//        echo "<b>Array barang yang dipilih:</b><br>" . join(",", $pickedItems) . "<br>";
         echo "<b>Barang yang terpilih:</b><br>";
         echo "<table border cellspacing=0>";
         echo "<tr><td>Barang</td><td>Harga</td><td>Berat</td></tr>";
@@ -109,5 +112,10 @@ class Rekomendasi extends Controller
 
         echo "<tr><td align=right><b>Total</b></td><td>$totalVal</td><td>$totalWt</td></tr>";
         echo "</table><hr>";
+    }
+
+    public function rekomendasiawal(){
+        $kendaraans = \App\Models\kendaraan::all();
+        return view('rekomendasi.pilihkendaraan',compact('kendaraans'));
     }
 }

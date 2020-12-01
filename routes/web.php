@@ -42,7 +42,8 @@ Route::middleware(['cekLogin'])->group(function () {
     Route::delete('kendaraan/destroy',[Kendaraan::class,'hapusaction'])->name('kendaraan.destroy');
 });
 
-Route::get('rekomendasi', [Rekomendasi::class, 'hitung'])->name('hitung');
+Route::get('rekomendasi', [Rekomendasi::class, 'rekomendasiawal'])->name('hitung');
+Route::get('rekomendasi/kendaraan/{kendaraan}', [Rekomendasi::class, 'hitung'])->name('hitung');
 
 
 
