@@ -136,6 +136,13 @@ class Rekomendasi extends Controller
         //hitung
         list ($m4, $pickedItems) = $this->knapSolveFast2($berats, $hargas, sizeof($hargas) - 1, $kapasitas, $m);
 
-        return view('rekomendasi.rekomendasipilih', compact(['k','kapasitas','barangs','berats','hargas','m4','pickedItems']));
+        //hitung total harga dan barang
+        $totalVal = $totalWt = 0;
+        foreach($pickedItems as $key){
+            $totalVal += $hargas[$key];
+            $totalWt += $berats[$key];
+        }
+
+        return view('rekomendasi.rekomendasipilih', compact(['k','kapasitas','barangs','berats','hargas','m4','pickedItems','totalVal','totalWt']));
     }
 }
