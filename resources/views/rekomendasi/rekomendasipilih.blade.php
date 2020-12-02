@@ -39,12 +39,12 @@
                         $totalWt += $berats[$key]; ?>
                         <td>{{$a+1}}</td>
                         <td>{{$barangs[$key]}}</td>
-                        <td>Rp. {{number_format($hargas[$key],2,',','.')}}</td>
+                        <td>Rp. {{number_format($hargas[$key],0,',','.')}}</td>
                         <td>{{$berats[$key]}} Kg</td>
 {{--                        <td><a href="{{url('/rekomendasi/kendaraan/'.$kendaraan->id_kendaraan)}}" class="btn btn-primary btn-sm">Rekomendasi Pengiriman</a> </td>--}}
                     </tr>
                 @endforeach
-                <tr><td colspan="2"><b>Total</b></td><td>Rp. {{number_format($totalVal,2,',','.')}}</td><td>{{$totalWt}} Kg</td></tr>
+                <tr><td colspan="2"><b>Total</b></td><td>Rp. {{number_format($totalVal,0,',','.')}}</td><td>{{$totalWt}} Kg</td></tr>
                 </tbody>
             </table>
 {{--                            <tr><td colspan="2"><b>Total</b></td><td>{{$totalVal}}</td><td>{{$totalWt}}</td></tr>--}}
