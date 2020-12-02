@@ -135,7 +135,7 @@ class Rekomendasi extends Controller
         }
         //hitung
         list ($m4, $pickedItems) = $this->knapSolveFast2($berats, $hargas, sizeof($hargas) - 1, $kapasitas, $m);
-        
+
         return view('rekomendasi.rekomendasipilih', compact(['k','kapasitas','barangs','berats','hargas','m4','pickedItems']));
     }
 }
