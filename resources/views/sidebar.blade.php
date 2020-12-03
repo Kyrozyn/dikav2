@@ -11,6 +11,9 @@
     <li class="{{ Request::is('rekomendasi') ? 'active' : '' }}"><a href="{{url('/rekomendasi')}}"><i class="fa fa-send"></i> <span>Rekomendasi Pengiriman</span></a></li>
     <li class="header">Invoice</li>
     <li class="{{ Request::is('invoice') ? 'active' : '' }}"><a href="{{url('/invoice')}}"><i class="fa fa-send"></i> <span>Lihat Semua Invoice</span></a></li>
+    <li class="header">Akun</li>
+    <li class="{{ Request::is('akun/baru') ? 'active' : '' }}"><a href="{{url('/akun/baru')}}"><i class="fa fa-user-plus"></i> <span>Tambah Akun</span></a></li>
+    <li class="{{ Request::is('akun/lihat') ? 'active' : '' }}"><a href="{{url('/akun/lihat')}}"><i class="fa fa-user"></i> <span>Lihat Akun</span></a></li>
 
     {{--    <li class="treeview">--}}
 {{--        <a href="#"><i class="fa fa-link"></i> <span>Pengiriman</span>--}}

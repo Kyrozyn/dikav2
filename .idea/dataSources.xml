@@ -7,5 +7,11 @@
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mariadb://localhost:3306</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="MySQL - heroku_d9b966ef2a18c7d@us-cdbr-east-02.cleardb.com" uuid="f17f64d2-b1cb-4c32-b48c-2351c31ae6cd">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://us-cdbr-east-02.cleardb.com:3306/heroku_d9b966ef2a18c7d</jdbc-url>
+    </data-source>
   </component>
 </project>

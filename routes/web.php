@@ -58,6 +58,13 @@ Route::middleware([])->group(function () {
     Route::get('akun/login', [Akun::class, 'login']);
     Route::post('akun/login', [Akun::class, 'loginaction']);
     Route::get('akun/logout', [Akun::class, 'logout']);
+    Route::get('akun/baru', [Akun::class, 'baru']);
+    Route::post('akun/baru', [Akun::class, 'baruaction']);
+    Route::get('akun/lihat', [Akun::class, 'lihat']);
+    Route::get('akun/edit', [Akun::class, 'edit']);
+    Route::post('akun/edit', [Akun::class, 'editaction']);
+    Route::delete('akun/destroy', [Akun::class, 'hapusaction'])->name('akun.destroy');
+
 });
 
 //invoice

@@ -37,5 +37,59 @@ class Akun extends Controller
         $request->session()->flush();
         return redirect('/akun/login');
     }
+
+    public function baru(){
+        return view('akun.baru');
+    }
+
+    public function baruaction(Request $req){
+        $input = $req->all();
+        $akun = new \App\Models\akun();
+        $akun->username = $input['username'];
+        $akun->password = $input['password'];
+        $akun->role = $input['role'];
+
+        if($akun->save()){
+            return redirect('akun/lihat')->with('pesan','Data berhasil disimpan!');
+        }
+        else{
+            return redirect('akun/lihat')->with('pesan','Data gagal disimpan');
+        }
+    }
+
+    public function lihat(){
+        $akuns = \App\Models\akun::all();
+        return view('akun.lihat',compact('akuns'));
+    }
+
+    public function edit(){
+        $akun = \App\Models\akun::whereUsername(array_key_first($_GET))->first();
+        return view('akun.edit',compact('akun'));
+    }
+
+    public function editaction(Request $req){
+        $input = $req->all();
+        $akun = \App\Models\akun::whereUsername($req['username'])->first();
+        $akun->username = $input['username'];
+        $akun->password = $input['password'];
+        $akun->role = $input['role'];
+
+        if($akun->save()){
+            return redirect('akun/lihat')->with('pesan','Data berhasil diedit!');
+        }
+        else{
+            return redirect('akun/lihat')->with('pesan','Data gagal diedit');
+        }
+    }
+
+    public function hapusaction(){
+        $akun = \App\Models\akun::whereUsername(array_key_first($_GET))->first();
+        try {
+            $akun->delete();
+            return redirect('akun/lihat')->with('pesan','Data Berhasil dihapus!');
+        } catch (\Exception $e) {
+            return redirect('akun/lihat')->with('pesan','Data gagal dihapus! Pesan :'.$e->getMessage());
+        }
+    }
 }
 
