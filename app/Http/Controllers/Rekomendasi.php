@@ -179,6 +179,6 @@ class Rekomendasi extends Controller
             $pengiriman->status = 'Dijadwalkan';
             $pengiriman->save();
         }
-        return redirect('/pengiriman/lihatv2')->with('Invoice berhasil dibuat');
+        return redirect('/invoice/'.$randinvoice)->with('Invoice berhasil dibuat');
     }
 }
