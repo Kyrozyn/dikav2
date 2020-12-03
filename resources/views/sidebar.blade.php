@@ -9,6 +9,8 @@
     <li class="{{ Request::is('kendaraan/lihat') ? 'active' : '' }}"><a href="{{url('/kendaraan/lihat')}}"><i class="fa fa-car"></i> <span>Lihat Semua Kendaraan</span></a></li>
     <li class="header">Rekomendasi</li>
     <li class="{{ Request::is('rekomendasi') ? 'active' : '' }}"><a href="{{url('/rekomendasi')}}"><i class="fa fa-send"></i> <span>Rekomendasi Pengiriman</span></a></li>
+    <li class="header">Invoice</li>
+    <li class="{{ Request::is('invoice') ? 'active' : '' }}"><a href="{{url('/invoice')}}"><i class="fa fa-send"></i> <span>Lihat Semua Invoice</span></a></li>
 
     {{--    <li class="treeview">--}}
 {{--        <a href="#"><i class="fa fa-link"></i> <span>Pengiriman</span>--}}

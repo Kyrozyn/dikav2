@@ -67,7 +67,7 @@
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::select(['Dikirim' => 'Dikirim','Terkirim' => 'Terkirim','Pending' => 'Pending'],'status','Status')->id('status')->required()}}
+                    {{Aire::select(['Dikirim' => 'Dikirim','Terkirim' => 'Terkirim','Pending' => 'Pending'],'status','Status')->id('status')->required()->defaultValue('Pending')}}
                 </div>
             </div>
             <div class="row">

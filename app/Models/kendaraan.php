@@ -10,4 +10,8 @@ class kendaraan extends Model
     use HasFactory;
     public $timestamps = false;
     protected $primaryKey = 'id_kendaraan';
+
+    public function invoice(){
+        return $this->hasMany('App\Models\pengiriman');
+    }
 }

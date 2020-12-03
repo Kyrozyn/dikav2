@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Akun;
+use App\Http\Controllers\Invoice;
 use App\Http\Controllers\Kendaraan;
 use App\Http\Controllers\Pengiriman;
 use App\Http\Controllers\Rekomendasi;
@@ -49,6 +50,7 @@ Route::middleware(['cekLogin'])->group(function () {
     Route::get('rekomendasi', [Rekomendasi::class, 'rekomendasiawal'])->name('hitung');
     Route::get('rekomendasi/kendaraan/{kendaraan}', [Rekomendasi::class, 'rekomendasipilih'])->name('hitung');
     Route::get('rekomendasi/kendaraan/{kendaraan}/invoice', [Rekomendasi::class, 'invoice'])->name('hitung');
+    Route::post('rekomendasi/kendaraan/{kendaraan}/invoice', [Rekomendasi::class, 'buatinvoice'])->name('hitung');
 });
 
 //akun
@@ -56,4 +58,10 @@ Route::middleware([])->group(function () {
     Route::get('akun/login', [Akun::class, 'login']);
     Route::post('akun/login', [Akun::class, 'loginaction']);
     Route::get('akun/logout', [Akun::class, 'logout']);
+});
+
+//invoice
+Route::middleware(['cekLogin'])->group(function () {
+    Route::get('invoice', [Invoice::class, 'lihat'])->name('lihatinvoice');
+    Route::get('invoice/{idinvoice}', [Invoice::class, 'detailinvoice'])->name('lihatinvoice');
 });

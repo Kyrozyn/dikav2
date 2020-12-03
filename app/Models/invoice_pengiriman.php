@@ -5,10 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class akun extends Model
+class invoice_pengiriman extends Model
 {
-    use HasFactory;
     public $timestamps = false;
-    protected $primaryKey = 'username';
-    protected $keyType = 'string';
+    use HasFactory;
 }

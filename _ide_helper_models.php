@@ -27,7 +27,7 @@ namespace App\Models{
 /**
  * App\Models\akun
  *
- * @property int $username
+ * @property string $username
  * @property string $password
  * @method static \Illuminate\Database\Eloquent\Builder|akun newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|akun newQuery()
@@ -40,14 +40,51 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\invoice
+ *
+ * @property string $id_invoice
+ * @property string $tgl_kirim
+ * @property string $status
+ * @property int $id_kendaraan
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\pengiriman[] $pengiriman
+ * @property-read int|null $pengiriman_count
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice query()
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice whereIdInvoice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice whereIdKendaraan($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice whereTglKirim($value)
+ */
+	class invoice extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\invoice_pengiriman
+ *
+ * @property string $invoice_id_invoice
+ * @property string $pengiriman_no_resi
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman query()
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman whereInvoiceIdInvoice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman wherePengirimanNoResi($value)
+ */
+	class invoice_pengiriman extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\kendaraan
  *
  * @property int $id_kendaraan
  * @property string $nama_kendaraan
  * @property int $kapasitas
- * @property int $prioritas
  * @property string $plat_kendaraan
  * @property string $status
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\pengiriman[] $invoice
+ * @property-read int|null $invoice_count
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan query()
@@ -55,7 +92,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereKapasitas($value)
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereNamaKendaraan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan wherePlatKendaraan($value)
- * @method static \Illuminate\Database\Eloquent\Builder|kendaraan wherePrioritas($value)
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereStatus($value)
  */
 	class kendaraan extends \Eloquent {}
@@ -68,6 +104,7 @@ namespace App\Models{
  * @property string $no_resi
  * @property string $nama_pengirim
  * @property string $nama_penerima
+ * @property string $alamat
  * @property string $no_telp_pengirim
  * @property string $no_telp_penerima
  * @property string $tgl_masuk
@@ -75,9 +112,12 @@ namespace App\Models{
  * @property int $berat
  * @property int $harga
  * @property string $status
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\invoice[] $invoice
+ * @property-read int|null $invoice_count
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman query()
+ * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereAlamat($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereBerat($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereDeskripsi($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereHarga($value)

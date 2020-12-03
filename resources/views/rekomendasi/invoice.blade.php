@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            {{Aire::open()->action(url('kendaraan/baru'))}}
+            {{Aire::open()->action(url()->current())}}
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
                     {{Aire::date('tanggal_kirim','Tanggal Kirim')->id('nama_kendaraan')->defaultValue(\Carbon\Carbon::now()->toDateString())->min(\Carbon\Carbon::now()->toDateString())}}

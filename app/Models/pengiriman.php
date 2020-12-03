@@ -11,4 +11,8 @@ class pengiriman extends Model
     public $timestamps = false;
     protected $primaryKey = 'no_resi';
     protected $keyType = 'string';
+
+    public function invoice(){
+        return $this->belongsToMany('App\Models\invoice','invoice_pengirimen');
+    }
 }

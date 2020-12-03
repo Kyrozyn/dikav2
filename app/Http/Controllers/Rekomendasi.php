@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\invoice;
+use App\Models\invoice_pengiriman;
 use Illuminate\Http\Request;
 
 class Rekomendasi extends Controller
@@ -154,5 +156,29 @@ class Rekomendasi extends Controller
     public function invoice($kendaraan){
         $rekomendasi = $this->rekomendasi($kendaraan);
         return view('rekomendasi.invoice', $rekomendasi);
+    }
+
+    public function buatinvoice(Request $req, $kendaraan){
+        /** @var \App\Models\pengiriman $item */
+        /** @var $pengiriman */
+        $randinvoice = rand(0,7000);
+        $invoice = new invoice();
+        $invoice->id_invoice = $randinvoice;
+        $invoice->tgl_kirim = $req->post('tanggal_kirim');
+        $invoice->id_kendaraan = $kendaraan;
+        $invoice->status = 'Pending';
+        $invoice->save();
+        $rekomendasi = $this->rekomendasi($kendaraan);
+        foreach ($rekomendasi['pickedItems'] as $item){
+            $jadwalinvoice = new invoice_pengiriman();
+            $jadwalinvoice->invoice_id_invoice = $randinvoice;
+            $jadwalinvoice->pengiriman_no_resi = $rekomendasi['barangs'][$item];
+            $jadwalinvoice->save();
+            //
+            $pengiriman = \App\Models\pengiriman::whereNoResi($rekomendasi['barangs'][$item])->first();
+            $pengiriman->status = 'Dijadwalkan';
+            $pengiriman->save();
+        }
+        return redirect('/pengiriman/lihatv2')->with('Invoice berhasil dibuat');
     }
 }

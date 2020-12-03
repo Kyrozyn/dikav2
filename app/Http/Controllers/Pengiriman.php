@@ -18,6 +18,7 @@ class Pengiriman extends Controller
         $pengiriman->no_resi = $input['no_resi'];
         $pengiriman->nama_penerima = $input['nama_penerima'];
         $pengiriman->nama_pengirim = $input['nama_pengirim'];
+        $pengiriman->alamat = $input['alamat'];
         $pengiriman->no_telp_pengirim = $input['no_telp_pengirim'];
         $pengiriman->no_telp_penerima = $input['no_telp_penerima'];
         $pengiriman->tgl_masuk = $input['tgl_masuk'];
@@ -27,10 +28,10 @@ class Pengiriman extends Controller
         $pengiriman->status = $input['status'];
 
         if($pengiriman->save()){
-            return redirect('pengiriman/lihat')->with('pesan','Data berhasil disimpan!');
+            return redirect('pengiriman/lihatv2')->with('pesan','Data berhasil disimpan!');
         }
         else{
-            return redirect('pengiriman/lihat')->with('pesan','Data gagal disimpan');
+            return redirect('pengiriman/lihatv2')->with('pesan','Data gagal disimpan');
         }
     }
 
@@ -64,6 +65,7 @@ class Pengiriman extends Controller
         $pengiriman = \App\Models\pengiriman::find($input['no_resi']);
         $pengiriman->nama_penerima = $input['nama_penerima'];
         $pengiriman->nama_pengirim = $input['nama_pengirim'];
+        $pengiriman->alamat = $input['alamat'];
         $pengiriman->no_telp_pengirim = $input['no_telp_pengirim'];
         $pengiriman->no_telp_penerima = $input['no_telp_penerima'];
         $pengiriman->tgl_masuk = $input['tgl_masuk'];
