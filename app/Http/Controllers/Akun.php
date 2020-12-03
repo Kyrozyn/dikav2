@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class Akun extends Controller
 {
-    public function login(){
+    public function login(Request $req){
+        if($req->session()->exists('username')){
+            return redirect('/pengiriman/lihatv2');
+        }
         return view('akun/login');
     }
 
@@ -19,7 +22,7 @@ class Akun extends Controller
         }
         else{
             $req->session()->put('username', $akundb->username);
-            return redirect('/pengiriman/lihat');
+            return redirect('/pengiriman/lihatv2');
         }
     }
 
