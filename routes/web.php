@@ -25,10 +25,12 @@ Route::get('/', function () {
 Route::middleware(['cekLogin'])->group(function () {
     Route::get('pengiriman/edit', [Pengiriman::class, 'edit'])->name('pengiriman.edit');
     Route::post('pengiriman/edit', [Pengiriman::class, 'editaction'])->name('pengiriman.editaction');
-    Route::delete('pengiriman/destroy',[Pengiriman::class,'hapusaction'])->name('pengiriman.destroy');
+    Route::delete('pengiriman/destroy', [Pengiriman::class, 'hapusaction'])->name('pengiriman.destroy');
     Route::post('pengiriman/baru', [Pengiriman::class, 'baruaction']);
     Route::get('pengiriman/baru', [Pengiriman::class, 'baru'])->name('pengiriman.create');
     Route::get('pengiriman/lihat', [Pengiriman::class, 'lihat'])->name("pengirimen.index");
+    Route::get('pengiriman/lihatv2', [Pengiriman::class, 'lihatv2'])->name("pengirimen.index");
+    Route::get('pengiriman/lihatv2pending', [Pengiriman::class, 'lihatv2pending'])->name("pengirimen.index");
     Route::get('pengiriman/show', [Pengiriman::class, 'show'])->name("pengiriman.show");
 });
 
@@ -39,17 +41,19 @@ Route::middleware(['cekLogin'])->group(function () {
     Route::post('kendaraan/baru', [Kendaraan::class, 'baruaction']);
     Route::get('kendaraan/edit', [Kendaraan::class, 'edit'])->name('kendaraans.edit');
     Route::post('kendaraan/edit', [Kendaraan::class, 'editaction'])->name('kendaraans.editaction');
-    Route::delete('kendaraan/destroy',[Kendaraan::class,'hapusaction'])->name('kendaraan.destroy');
+    Route::delete('kendaraan/destroy', [Kendaraan::class, 'hapusaction'])->name('kendaraan.destroy');
 });
 
-Route::get('rekomendasi', [Rekomendasi::class, 'rekomendasiawal'])->name('hitung');
-Route::get('rekomendasi/kendaraan/{kendaraan}', [Rekomendasi::class, 'rekomendasipilih'])->name('hitung');
-
-
+//rekomendasi
+Route::middleware(['cekLogin'])->group(function () {
+    Route::get('rekomendasi', [Rekomendasi::class, 'rekomendasiawal'])->name('hitung');
+    Route::get('rekomendasi/kendaraan/{kendaraan}', [Rekomendasi::class, 'rekomendasipilih'])->name('hitung');
+    Route::get('rekomendasi/kendaraan/{kendaraan}/invoice', [Rekomendasi::class, 'invoice'])->name('hitung');
+});
 
 //akun
 Route::middleware([])->group(function () {
-    Route::get('akun/login',[Akun::class,'login']);
-    Route::post('akun/login',[Akun::class,'loginaction']);
-    Route::get('akun/logout',[Akun::class,'logout']);
+    Route::get('akun/login', [Akun::class, 'login']);
+    Route::post('akun/login', [Akun::class, 'loginaction']);
+    Route::get('akun/logout', [Akun::class, 'logout']);
 });

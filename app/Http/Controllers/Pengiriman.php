@@ -39,6 +39,16 @@ class Pengiriman extends Controller
         return view('pengiriman.lihat',compact('table'));
     }
 
+    public function lihatv2(){
+        $pengirimans = \App\Models\pengiriman::all();
+        return view('pengiriman.lihatv2',compact('pengirimans'));
+    }
+
+    public function lihatv2pending(){
+        $pengirimans = \App\Models\pengiriman::where('status','=','Pending')->get();
+        return view('pengiriman.lihatv2pending',compact('pengirimans'));
+    }
+
     public function edit(){
         $pengiriman = \App\Models\pengiriman::whereNoResi(array_key_first($_GET))->first();
         return view('pengiriman.edit',compact('pengiriman'));

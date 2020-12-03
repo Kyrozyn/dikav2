@@ -26,11 +26,11 @@
                     {{Aire::input('kapasitas','Kapasitas')->id('kapasitas')->required()->pattern('[0-9]+')->append('Kg')}}
                 </div>
             </div>
-            <div class="row">
-                <div class="col col-sm-12 col-lg-6">
-                    {{Aire::input('prioritas','Prioritas')->id('prioritas')->required()->pattern('[0-9]+')}}
-                </div>
-            </div>
+{{--            <div class="row">--}}
+{{--                <div class="col col-sm-12 col-lg-6">--}}
+{{--                    {{Aire::input('prioritas','Prioritas')->id('prioritas')->required()->pattern('[0-9]+')}}--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
                     {{Aire::input('plat_kendaraan','Plat Kendaraan')->id('plat_kendaraan')->required()}}

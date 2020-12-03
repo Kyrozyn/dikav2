@@ -119,7 +119,7 @@ class Rekomendasi extends Controller
         return view('rekomendasi.pilihkendaraan',compact('kendaraans'));
     }
 
-    public function rekomendasipilih($kendaraan){
+    public function rekomendasi($kendaraan){
         $k = \App\Models\kendaraan::whereIdKendaraan($kendaraan)->first();
         $kapasitas = $k->kapasitas;
         //inisialisasi
@@ -127,7 +127,7 @@ class Rekomendasi extends Controller
         $berats = array();
         $hargas = array();
         $m = array();
-        $pengiriman = \App\Models\pengiriman::all();
+        $pengiriman = \App\Models\pengiriman::where('status','=','Pending')->get();
         foreach ($pengiriman as $p) {
             array_push($barangs, $p->no_resi);
             array_push($berats,$p->berat);
@@ -142,7 +142,17 @@ class Rekomendasi extends Controller
             $totalVal += $hargas[$key];
             $totalWt += $berats[$key];
         }
+        return ['k' => $k,'kapasitas' => $kapasitas,'barangs' => $barangs,'berats' => $berats,'hargas' => $hargas,'m4' => $m4,'pickedItems' => $pickedItems,'totalVal' => $totalVal,'totalWt' => $totalWt];
+//        return view('rekomendasi.rekomendasipilih', compact(['k','kapasitas','barangs','berats','hargas','m4','pickedItems','totalVal','totalWt']));
+    }
 
-        return view('rekomendasi.rekomendasipilih', compact(['k','kapasitas','barangs','berats','hargas','m4','pickedItems','totalVal','totalWt']));
+    public function rekomendasipilih($kendaraan){
+        $rekomendasi = $this->rekomendasi($kendaraan);
+        return view('rekomendasi.rekomendasipilih', $rekomendasi);
+    }
+
+    public function invoice($kendaraan){
+        $rekomendasi = $this->rekomendasi($kendaraan);
+        return view('rekomendasi.invoice', $rekomendasi);
     }
 }

@@ -17,7 +17,7 @@ class CreateKendaraansTable extends Migration
             $table->integer('id_kendaraan')->autoIncrement();
             $table->string('nama_kendaraan');
             $table->integer('kapasitas');
-            $table->integer('prioritas');
+//            $table->integer('prioritas');
             $table->string('plat_kendaraan');
             $table->string('status');
         });

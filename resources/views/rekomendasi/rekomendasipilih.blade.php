@@ -19,7 +19,7 @@
                   | Your Page Content Here |
                   -------------------------->
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Total Berat</h5>
@@ -27,11 +27,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title ">Total Harga</h5>
                             <p class="card-text text-bold">Rp. {{number_format($totalVal,0,',','.')}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title ">Aksi</h5>
+{{--                            <p class="card-text text-bold">--}}
+                            <div class="row">
+                                <div class="col-6">
+                                    <a href="{{url('/rekomendasi/kendaraan/'.$k->id_kendaraan.'/invoice')}}" class="btn btn-primary btn-sm" onclick="return confirm('Apakah anda yakin?')">Buat Invoice Pengiriman</a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="{{url('/rekomendasi')}}" class="btn btn-danger btn-sm">Batalkan Rekomendasi</a>
+                                </div>
+                            </div>
+{{--                            </p>--}}
                         </div>
                     </div>
                 </div>
@@ -42,7 +59,7 @@
                         <thead>
                         <tr>
                             <th>No</th>
-                            <th>Barang</th>
+                            <th>No Resi</th>
                             <th>Harga</th>
                             <th>Berat</th>
                         </tr>
@@ -56,7 +73,7 @@
                                 /** @var array $berats */
                                 ?>
                                 <td>{{$a+1}}</td>
-                                <td>{{$barangs[$key]}}</td>
+                                <td><a href="{{url('/pengiriman/show?')}}{{$barangs[$key]}}">{{$barangs[$key]}}</a></td>
                                 <td>Rp. {{number_format($hargas[$key],0,',','.')}}</td>
                                 <td>{{$berats[$key]}} Kg</td>
                                 {{--                        <td><a href="{{url('/rekomendasi/kendaraan/'.$kendaraan->id_kendaraan)}}" class="btn btn-primary btn-sm">Rekomendasi Pengiriman</a> </td>--}}

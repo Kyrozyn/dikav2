@@ -40,7 +40,7 @@ class KendaraanTable extends AbstractTable
         $table->column('id_kendaraan')->sortable()->searchable()->title('ID Kendaraan');
         $table->column('nama_kendaraan')->sortable()->searchable()->title('Nama Kendaraan');
         $table->column('kapasitas')->sortable()->title('Kapasitas');
-        $table->column('prioritas')->sortable()->title('Prioritas');
+//        $table->column('prioritas')->sortable()->title('Prioritas');
         $table->column('plat_kendaraan')->sortable()->searchable()->title('Plat Kendaraan');
         $table->column('status')->sortable()->title('Status');
     }

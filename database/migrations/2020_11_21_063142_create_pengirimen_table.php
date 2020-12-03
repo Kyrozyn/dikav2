@@ -17,6 +17,7 @@ class CreatePengirimenTable extends Migration
             $table->string('no_resi')->primary();
             $table->string('nama_pengirim');
             $table->string('nama_penerima');
+            $table->text('alamat');
             $table->string('no_telp_pengirim');
             $table->string('no_telp_penerima');
             $table->date('tgl_masuk');
