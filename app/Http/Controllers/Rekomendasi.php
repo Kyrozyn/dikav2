@@ -130,12 +130,15 @@ class Rekomendasi extends Controller
         $hargas = array();
         $m = array();
         $pengiriman = \App\Models\pengiriman::where('status','=','Pending')->get();
-        if(!empty($pengiriman)){
+        if(!empty($pengiriman->toArray())){
             foreach ($pengiriman as $p) {
                 array_push($barangs, $p->no_resi);
                 array_push($berats,$p->berat);
                 array_push($hargas,$p->harga);
             }
+        }
+        else{
+            return [];
         }
         //hitung
         list ($m4, $pickedItems) = $this->knapSolveFast2($berats, $hargas, sizeof($hargas) - 1, $kapasitas, $m);
@@ -152,7 +155,12 @@ class Rekomendasi extends Controller
 
     public function rekomendasipilih($kendaraan){
         $rekomendasi = $this->rekomendasi($kendaraan);
-        return view('rekomendasi.rekomendasipilih', $rekomendasi);
+        if(empty($rekomendasi)){
+            return view('rekomendasi.kosong');
+        }
+        else{
+            return view('rekomendasi.rekomendasipilih', $rekomendasi);
+        }
     }
 
     public function invoice($kendaraan){
