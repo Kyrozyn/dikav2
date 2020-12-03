@@ -35,6 +35,11 @@
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
+                    {{Aire::input('alamat','Alamat')->id('alamat')->required()}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-sm-12 col-lg-6">
                     {{Aire::input('no_telp_pengirim','No Telp Pengirim')->id('no_telp_pengirim')->required()->pattern('[0-9]+')}}
                 </div>
             </div>
