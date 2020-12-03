@@ -16,11 +16,13 @@ class CreateAkunsTable extends Migration
         Schema::create('akuns', function (Blueprint $table) {
             $table->string('username')->primary();
             $table->string('password');
+            $table->string('role');
         });
 
         DB::table('akuns')->insert(
             [
-                ['username' => 'andika','password' => '12345678']
+                ['username' => 'andika','password' => '12345678','role' => 'Kepala Gudang'],
+                ['username' => 'direktur','password' => '12345678','role' => 'Direktur']
             ]
         );
     }

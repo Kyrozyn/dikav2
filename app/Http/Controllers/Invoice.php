@@ -23,4 +23,33 @@ class Invoice extends Controller
         }
         return view('invoice.detail',compact(['pengirimans','berat','harga','invoice']));
     }
+
+    public function verifikasi(){
+        $invoices = \App\Models\invoice::whereStatus('Pending')->get();
+        return view('invoice.lihatverifikasi',compact('invoices'));
+    }
+
+    public function terimainvoice($id_invoice){
+        $invoice = \App\Models\invoice::whereIdInvoice($id_invoice)->first();
+        $invoice->status = "Diterima";
+        $invoice->save();
+        foreach ($invoice->pengiriman as $pengiriman){
+            $pengirimans = \App\Models\pengiriman::whereNoResi($pengiriman->no_resi)->first();
+            $pengirimans->status = 'Dikirim';
+            $pengirimans->save();
+        }
+        return redirect('/invoice/verifikasi/')->with('pesan','Invoice berhasil diterima');
+    }
+
+    public function tolakinvoice($id_invoice){
+        $invoice = \App\Models\invoice::whereIdInvoice($id_invoice)->first();
+        $invoice->status = "Ditolak";
+        $invoice->save();
+        foreach ($invoice->pengiriman as $pengiriman){
+            $pengirimans = \App\Models\pengiriman::whereNoResi($pengiriman->no_resi)->first();
+            $pengirimans->status = 'Pending';
+            $pengirimans->save();
+        }
+        return redirect('/invoice/verifikasi/')->with('pesan','Invoice berhasil ditolak');
+    }
 }

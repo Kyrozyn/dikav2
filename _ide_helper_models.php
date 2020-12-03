@@ -29,10 +29,12 @@ namespace App\Models{
  *
  * @property string $username
  * @property string $password
+ * @property string $role
  * @method static \Illuminate\Database\Eloquent\Builder|akun newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|akun newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|akun query()
  * @method static \Illuminate\Database\Eloquent\Builder|akun wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|akun whereRole($value)
  * @method static \Illuminate\Database\Eloquent\Builder|akun whereUsername($value)
  */
 	class akun extends \Eloquent {}

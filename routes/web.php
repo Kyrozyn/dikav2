@@ -63,5 +63,8 @@ Route::middleware([])->group(function () {
 //invoice
 Route::middleware(['cekLogin'])->group(function () {
     Route::get('invoice', [Invoice::class, 'lihat'])->name('lihatinvoice');
+    Route::get('invoice/verifikasi', [Invoice::class, 'verifikasi'])->name('lihatinvoice');
     Route::get('invoice/{idinvoice}', [Invoice::class, 'detailinvoice'])->name('lihatinvoice');
+    Route::get('invoice/terima/{idinvoice}', [Invoice::class, 'terimainvoice'])->name('lihatinvoice');
+    Route::get('invoice/tolak/{idinvoice}', [Invoice::class, 'tolakinvoice'])->name('lihatinvoice');
 });

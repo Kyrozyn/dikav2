@@ -9,7 +9,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Semua Invoice
+                Verifikasi Invoice
                 <small></small>
             </h1>
         </section>
@@ -32,7 +32,7 @@
                     <table id="table_id" class="display">
                         <thead>
                         <tr>
-                            <th>ID Invoice</th>
+                            <th>ID Invoce</th>
                             <th>Tanggal Kirim</th>
                             <th>Status</th>
                             <th>Aksi</th>
@@ -43,8 +43,13 @@
                             <tr>
                                 <td>{{$invoice->id_invoice}}</td>
                                 <td>{{$invoice->tgl_kirim}}</td>
-                                <td class="@if ($invoice->status == 'Diterima') text-green @elseif ($invoice->status == 'Ditolak') text-red @elseif ($invoice->status == 'Pending') text-black @endif">{{$invoice->status}}</td>
-                                <td><a href="{{url('invoice/'.$invoice->id_invoice)}}" class="btn btn-primary btn-sm">Detail</a></td>
+                                <td>{{$invoice->status}}</td>
+                                <td>
+                                    <a href="{{url('invoice/'.$invoice->id_invoice)}}" class="btn btn-secondary btn-sm">Detail</a>
+                                    <a href="{{url('invoice/terima/'.$invoice->id_invoice)}}" onclick="return confirm('Apakah anda yakin akan menerima invoice ini?')"
+                                       class="btn btn-primary btn-sm mx-0">Terima</a>
+                                    <a href="{{url('invoice/tolak/'.$invoice->id_invoice)}}" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin akan menolak invoice ini?')">Tolak</a>
+                                </td>
                             </tr>
                         @endforeach
                         {{--                    <tr>--}}

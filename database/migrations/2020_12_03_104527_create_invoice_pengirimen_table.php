@@ -26,6 +26,6 @@ class CreateInvoicePengirimenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jadwalinvoices');
+        Schema::dropIfExists('invoice_pengirimen');
     }
 }

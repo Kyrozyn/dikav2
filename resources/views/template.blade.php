@@ -10,8 +10,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Lasusua Foundation</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-{{--    <link rel="stylesheet" href="{{url('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">--}}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {{--    <link rel="stylesheet" href="{{url('bower_components/bootstrap/dist/css/bootstrap.min.css')}}">--}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{url('bower_components/font-awesome/css/font-awesome.min.css')}}">
     <!-- Ionicons -->
@@ -77,30 +78,30 @@ desired effect
                         <a href="{{url("/akun/logout")}}" role="button" style="padding-right: 10px"><i
                                 class="fas fa-sign-out-alt"></i> Keluar</a>
                     </li>
-{{--                    <li class="dropdown user user-menu">--}}
-{{--                        <!-- Menu Toggle Button -->--}}
-{{--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-{{--                            <!-- The user image in the navbar-->--}}
-{{--                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}}
-{{--                            <!-- hidden-xs hides the username on small devices so only the image appears. -->--}}
-{{--                            <span class="hidden-xs">Alexander Pierce</span>--}}
-{{--                        </a>--}}
-{{--                        <ul class="dropdown-menu">--}}
-{{--                            <!-- The user image in the menu -->--}}
-{{--                            <li class="user-header">--}}
-{{--                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}}
-{{--                                <p>--}}
-{{--                                    Alexander Pierce - Web Developer--}}
-{{--                                </p>--}}
-{{--                            </li>--}}
-{{--                            <!-- Menu Footer-->--}}
-{{--                            <li class="user-footer">--}}
-{{--                                <div class="pull-right">--}}
-{{--                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </li>--}}
+                    {{--                    <li class="dropdown user user-menu">--}}
+                    {{--                        <!-- Menu Toggle Button -->--}}
+                    {{--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+                    {{--                            <!-- The user image in the navbar-->--}}
+                    {{--                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">--}}
+                    {{--                            <!-- hidden-xs hides the username on small devices so only the image appears. -->--}}
+                    {{--                            <span class="hidden-xs">Alexander Pierce</span>--}}
+                    {{--                        </a>--}}
+                    {{--                        <ul class="dropdown-menu">--}}
+                    {{--                            <!-- The user image in the menu -->--}}
+                    {{--                            <li class="user-header">--}}
+                    {{--                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}}
+                    {{--                                <p>--}}
+                    {{--                                    Alexander Pierce - Web Developer--}}
+                    {{--                                </p>--}}
+                    {{--                            </li>--}}
+                    {{--                            <!-- Menu Footer-->--}}
+                    {{--                            <li class="user-footer">--}}
+                    {{--                                <div class="pull-right">--}}
+                    {{--                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>--}}
+                    {{--                                </div>--}}
+                    {{--                            </li>--}}
+                    {{--                        </ul>--}}
+                    {{--                    </li>--}}
                 </ul>
             </div>
         </nav>
@@ -111,29 +112,34 @@ desired effect
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
 
-{{--            <!-- Sidebar user panel (optional) -->--}}
-{{--            <div class="user-panel">--}}
-{{--                <div class="pull-left image">--}}
-{{--                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}}
-{{--                </div>--}}
-{{--                <div class="pull-left info">--}}
-{{--                    <p>Alexander Pierce</p>--}}
-{{--                    <!-- Status -->--}}
-{{--                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+        {{--            <!-- Sidebar user panel (optional) -->--}}
+        {{--            <div class="user-panel">--}}
+        {{--                <div class="pull-left image">--}}
+        {{--                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}}
+        {{--                </div>--}}
+        {{--                <div class="pull-left info">--}}
+        {{--                    <p>Alexander Pierce</p>--}}
+        {{--                    <!-- Status -->--}}
+        {{--                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
 
 
-            <!-- Sidebar Menu -->
+        <!-- Sidebar Menu -->
+        @if(session('role') == 'Kepala Gudang')
             @include('sidebar')
-            <!-- /.sidebar-menu -->
+        @endif
+        @if(session('role') == 'Direktur')
+            @include('sidebardirektur')
+        @endif
+        <!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    @yield("content")
-    <!-- /.content-wrapper -->
+@yield("content")
+<!-- /.content-wrapper -->
 
     <!-- Main Footer -->
     <footer class="main-footer">

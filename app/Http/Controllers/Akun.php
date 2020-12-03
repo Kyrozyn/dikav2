@@ -22,7 +22,14 @@ class Akun extends Controller
         }
         else{
             $req->session()->put('username', $akundb->username);
-            return redirect('/pengiriman/lihatv2');
+            $req->session()->put('role', $akundb->role);
+            if($akundb->role == 'Direktur'){
+                return redirect('/invoice/verifikasi');
+            }
+            else{
+                return redirect('/pengiriman/lihatv2');
+            }
+
         }
     }
 
