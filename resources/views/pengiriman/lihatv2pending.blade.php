@@ -62,7 +62,7 @@
                                             </a>
                                         </div>
                                         <form id="destroy-00471909" class="ml-2 destroy-action" role="form" method="POST" action="{{url('pengiriman/destroy?'.$pengiriman->no_resi)}}">
-                                            <input type="hidden" name="_token" value="PaoWD5lIuJnwtpW9cKn2TqWlBFWJkBFQFJzBeH3x">        <input type="hidden" name="_method" value="DELETE">        <button class="btn btn-link p-0 text-danger" type="submit" title="Destroy" onclick="return confirm('Apa kamu yakin ingin menghapus resi 00471909? ')">
+                                            <input type="hidden" name="_token" value="{{csrf_token()}}">        <input type="hidden" name="_method" value="DELETE">        <button class="btn btn-link p-0 text-danger" type="submit" title="Destroy" onclick="return confirm('Apa kamu yakin ingin menghapus resi? ')">
                                                 <i class="fas fa-trash fa-fw"></i>
                                             </button>
                                         </form>
