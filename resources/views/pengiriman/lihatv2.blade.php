@@ -52,12 +52,12 @@
                                 <td class="align-middle text-right">
                                     <div class="d-flex justify-content-end">
                                         <div id="show-00471909" class="show-action">
-                                            <a class="btn btn-link p-0 text-primary" href="http://127.0.0.1:8000/pengiriman/show?{{$pengiriman->no_resi}}" title="Show">
+                                            <a class="btn btn-link p-0 text-primary" href="{{url('pengiriman/show?'.$pengiriman->no_resi)}}" title="Show">
                                                 <i class="fas fa-eye fa-fw"></i>
                                             </a>
                                         </div>
                                         <div id="edit-00471909" class="ml-2 edit-action">
-                                            <a class="btn btn-link p-0 text-primary" href="http://127.0.0.1:8000/pengiriman/edit?{{$pengiriman->no_resi}}" title="Edit">
+                                            <a class="btn btn-link p-0 text-primary" href="{{url('pengiriman/edit?'.$pengiriman->no_resi)}}" title="Edit">
                                                 <i class="fas fa-edit fa-fw"></i>
                                             </a>
                                         </div>
