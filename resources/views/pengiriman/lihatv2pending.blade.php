@@ -10,7 +10,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Lihat Data Pengiriman Pending
+                Lihat Data Gudang
                 <small></small>
             </h1>
         </section>
