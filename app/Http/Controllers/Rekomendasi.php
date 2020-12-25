@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\invoice;
 use App\Models\invoice_pengiriman;
+use DVDoug\BoxPacker\InfalliblePacker;
+use DVDoug\BoxPacker\Packer;
+use DVDoug\BoxPacker\Test\TestBox;
+use DVDoug\BoxPacker\Test\TestItem;
 use Illuminate\Http\Request;
 
 class Rekomendasi extends Controller
@@ -190,5 +194,76 @@ class Rekomendasi extends Controller
             $pengiriman->save();
         }
         return redirect('/invoice/'.$randinvoice)->with('Invoice berhasil dibuat');
+    }
+
+    public function rek()
+    {
+        $packer = new InfalliblePacker();
+        $packer->addBox(new TestBox('Mobil 1', 3000, 3000, 100, 100, 2960, 2960, 80, 10000));
+        $packer->addItem(new TestItem('Item 1', 250, 250, 12, 200, true), 1); // item, quantity
+        $packer->addItem(new TestItem('Item 2', 250, 250, 12, 200, true), 1);
+        $packer->addItem(new TestItem('Item 3', 250, 250, 24, 200, true), 1);
+        $packer->addItem(new TestItem('Item 4', 250, 250, 24, 200, true), 1);
+        $packer->addItem(new TestItem('Item 5', 250, 250, 24, 200, true), 1);
+        $packer->addItem(new TestItem('Item 6', 250, 250, 24, 200, true), 1);
+
+        $packedBoxes = $packer->pack();
+        echo "These items fitted into " . count($packedBoxes) . " box(es)" . "<br>";
+        foreach ($packedBoxes as $packedBox) {
+            $boxType = $packedBox->getBox(); // your own box object, in this case TestBox
+            echo "This box is a {$boxType->getReference()}, it is {$boxType->getOuterWidth()}mm wide, {$boxType->getOuterLength()}mm long and {$boxType->getOuterDepth()}mm high" . "<br>";
+            echo "The combined weight of this box and the items inside it is {$packedBox->getWeight()}g" . "<br>";
+
+            echo "The items in this box are:" . "<br>";
+            $packedItems = $packedBox->getItems();
+            foreach ($packedItems as $key => $packedItem) { // $packedItem->getItem() is your own item object, in this case TestItem
+                $keys = $key+1;
+                echo $keys.". ".$packedItem->getItem()->getDescription() . "<br>";
+                echo "x = ".$packedItem->getX() . " ";
+                echo "y = ".$packedItem->getY() . " ";
+                echo "z = ".$packedItem->getZ() . " <br>";
+
+
+            }
+        }
+    }
+
+    public function testrekomendasi($kendaraan){
+        $k = \App\Models\kendaraan::whereIdKendaraan($kendaraan)->first();
+        $berat = $k->kapasitas;
+        $tinggi = $k->tinggi;
+        $lebar = $k->lebar;
+        $panjang = $k->panjang;
+
+        $packer = new InfalliblePacker();
+        $packer->addBox(new TestBox($k->plat_kendaraan, $lebar,$panjang,$tinggi,100,$lebar-40,$panjang-40,$tinggi-20,$berat));
+        //barang
+        $pengirimans = \App\Models\pengiriman::where('status','=','Pending')->get();
+        echo "Ada : ".$pengirimans->count().' Barang <br>';
+        foreach ($pengirimans as $pengiriman){
+            $packer->addItem(new TestItem($pengiriman->no_resi,$pengiriman->lebar,$pengiriman->panjang,$pengiriman->tinggi,$pengiriman->berat,true,1));
+        }
+
+        $packedBoxes = $packer->pack();
+        echo "These items fitted into " . count($packedBoxes) . " box(es)" . "<br>";
+        echo "Barang yang tidak di packing = ". print_r($packer->getUnpackedItems(),1)."<br>";
+        foreach ($packedBoxes as $key=>$packedBox) {
+            echo "=======================================<br>";
+            echo "        Box Ke-".$key."                <br>";
+            echo "=======================================<br>";
+            $boxType = $packedBox->getBox(); // your own box object, in this case TestBox
+            echo "This box is a {$boxType->getReference()}, it is {$boxType->getOuterWidth()}mm wide, {$boxType->getOuterLength()}mm long and {$boxType->getOuterDepth()}mm high" . "<br>";
+            echo "The combined weight of this box and the items inside it is {$packedBox->getWeight()}g" . "<br>";
+
+            echo "The items in this box are:" . "<br>";
+            $packedItems = $packedBox->getItems();
+            foreach ($packedItems as $key => $packedItem) { // $packedItem->getItem() is your own item object, in this case TestItem
+                $keys = $key+1;
+                echo $keys.". ".$packedItem->getItem()->getDescription() . "<br>";
+                echo "x = ".$packedItem->getX() . " ";
+                echo "y = ".$packedItem->getY() . " ";
+                echo "z = ".$packedItem->getZ() . " <br>";
+            }
+        }
     }
 }

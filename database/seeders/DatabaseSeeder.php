@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\kendaraan;
 use App\Models\pengiriman;
 use Illuminate\Database\Seeder;
 
@@ -16,5 +17,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         pengiriman::factory(100)->create();
+        kendaraan::factory(10)->create();
     }
 }

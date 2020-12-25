@@ -48,7 +48,7 @@ Route::middleware(['cekLogin'])->group(function () {
 //rekomendasi
 Route::middleware(['cekLogin'])->group(function () {
     Route::get('rekomendasi', [Rekomendasi::class, 'rekomendasiawal'])->name('hitung');
-    Route::get('rekomendasi/kendaraan/{kendaraan}', [Rekomendasi::class, 'rekomendasipilih'])->name('hitung');
+//    Route::get('rekomendasi/kendaraan/{kendaraan}', [Rekomendasi::class, 'rekomendasipilih'])->name('hitung');
     Route::get('rekomendasi/kendaraan/{kendaraan}/invoice', [Rekomendasi::class, 'invoice'])->name('hitung');
     Route::post('rekomendasi/kendaraan/{kendaraan}/invoice', [Rekomendasi::class, 'buatinvoice'])->name('hitung');
 });
@@ -75,3 +75,6 @@ Route::middleware(['cekLogin'])->group(function () {
     Route::get('invoice/terima/{idinvoice}', [Invoice::class, 'terimainvoice'])->name('lihatinvoice');
     Route::get('invoice/tolak/{idinvoice}', [Invoice::class, 'tolakinvoice'])->name('lihatinvoice');
 });
+
+Route::get('rek', [Rekomendasi::class, 'rek']);
+Route::get('rekomendasi/kendaraan/{kendaraan}', [Rekomendasi::class, 'testrekomendasi']);
