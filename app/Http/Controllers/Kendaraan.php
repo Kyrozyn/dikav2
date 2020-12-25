@@ -16,6 +16,9 @@ class Kendaraan extends Controller
         $kendaraan = new \App\Models\kendaraan();
         $kendaraan->nama_kendaraan = $input['nama_kendaraan'];
         $kendaraan->kapasitas = $input['kapasitas'];
+        $kendaraan->lebar = $input['lebar'];
+        $kendaraan->panjang = $input['panjang'];
+        $kendaraan->tinggi = $input['tinggi'];
 //        $kendaraan->prioritas = $input['prioritas'];
         $kendaraan->plat_kendaraan = $input['plat_kendaraan'];
         $kendaraan->status = $input['status'];
@@ -43,6 +46,9 @@ class Kendaraan extends Controller
         $kendaraan = \App\Models\kendaraan::find($input['id_kendaraan']);
         $kendaraan->nama_kendaraan = $input['nama_kendaraan'];
         $kendaraan->kapasitas = $input['kapasitas'];
+        $kendaraan->lebar = $input['lebar'];
+        $kendaraan->panjang = $input['panjang'];
+        $kendaraan->tinggi = $input['tinggi'];
 //        $kendaraan->prioritas = $input['prioritas'];
         $kendaraan->plat_kendaraan = $input['plat_kendaraan'];
         $kendaraan->status = $input['status'];

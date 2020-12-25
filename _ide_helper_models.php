@@ -83,6 +83,9 @@ namespace App\Models{
  * @property int $id_kendaraan
  * @property string $nama_kendaraan
  * @property int $kapasitas
+ * @property int $lebar
+ * @property int $panjang
+ * @property int $tinggi
  * @property string $plat_kendaraan
  * @property string $status
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\pengiriman[] $invoice
@@ -92,9 +95,12 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan query()
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereIdKendaraan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereKapasitas($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereLebar($value)
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereNamaKendaraan($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan wherePanjang($value)
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan wherePlatKendaraan($value)
  * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|kendaraan whereTinggi($value)
  */
 	class kendaraan extends \Eloquent {}
 }
@@ -112,6 +118,9 @@ namespace App\Models{
  * @property string $tgl_masuk
  * @property string $deskripsi
  * @property int $berat
+ * @property int $lebar
+ * @property int $panjang
+ * @property int $tinggi
  * @property int $harga
  * @property string $status
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\invoice[] $invoice
@@ -123,13 +132,16 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereBerat($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereDeskripsi($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereHarga($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereLebar($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereNamaPenerima($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereNamaPengirim($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereNoResi($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereNoTelpPenerima($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereNoTelpPengirim($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pengiriman wherePanjang($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereTglMasuk($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|pengiriman whereTinggi($value)
  */
 	class pengiriman extends \Eloquent {}
 }

@@ -24,6 +24,9 @@ class Pengiriman extends Controller
         $pengiriman->tgl_masuk = $input['tgl_masuk'];
         $pengiriman->deskripsi = $input['deskripsi'];
         $pengiriman->berat = $input['berat'];
+        $pengiriman->lebar = $input['lebar'];
+        $pengiriman->panjang = $input['panjang'];
+        $pengiriman->tinggi = $input['tinggi'];
         $pengiriman->harga = $input['harga'];
         $pengiriman->status = $input['status'];
 
@@ -71,6 +74,9 @@ class Pengiriman extends Controller
         $pengiriman->tgl_masuk = $input['tgl_masuk'];
         $pengiriman->deskripsi = $input['deskripsi'];
         $pengiriman->berat = $input['berat'];
+        $pengiriman->lebar = $input['lebar'];
+        $pengiriman->panjang = $input['panjang'];
+        $pengiriman->tinggi = $input['tinggi'];
         $pengiriman->harga = $input['harga'];
         $pengiriman->status = $input['status'];
 

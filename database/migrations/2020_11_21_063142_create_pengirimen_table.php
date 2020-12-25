@@ -23,6 +23,9 @@ class CreatePengirimenTable extends Migration
             $table->date('tgl_masuk');
             $table->text('deskripsi');
             $table->integer('berat');
+            $table->integer('lebar');
+            $table->integer('panjang');
+            $table->integer('tinggi');
             $table->integer('harga');
             $table->string('status');
         });

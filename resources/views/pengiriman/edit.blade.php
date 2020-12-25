@@ -65,6 +65,21 @@
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
+                    {{Aire::input('lebar','Lebar')->id('lebar')->required()->pattern('[0-9]+')->append('cm')}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-sm-12 col-lg-6">
+                    {{Aire::input('panjang','Panjang')->id('panjang')->required()->pattern('[0-9]+')->append('cm')}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-sm-12 col-lg-6">
+                    {{Aire::input('tinggi','Tinggi')->id('tinggi')->required()->pattern('[0-9]+')->append('cm')}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-sm-12 col-lg-6">
                     {{Aire::input('harga','Harga')->id('harga')->required()->pattern('[0-9]+')->prepend('Rp. ')}}
                 </div>
             </div>

@@ -31,6 +31,9 @@ class pengirimanFactory extends Factory
             'tgl_masuk' => $this->faker->date(),
             'deskripsi' => $this->faker->sentence(2),
             'berat' => $this->faker->numberBetween(1,20),
+            'lebar' => $this->faker->numberBetween(1,20),
+            'panjang' => $this->faker->numberBetween(1,20),
+            'tinggi' => $this->faker->numberBetween(1,20),
             'harga' => $this->faker->numberBetween(50000,150000),
             'status' => $this->faker->randomElement(['Dikirim','Terkirim','Pending']),
         ];
