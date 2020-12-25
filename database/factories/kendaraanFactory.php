@@ -23,11 +23,11 @@ class kendaraanFactory extends Factory
     {
         return [
             'nama_kendaraan' => $this->faker->name,
-            'kapasitas' => $this->faker->numberBetween(500,5000),
-            'lebar' => $this->faker->numberBetween(250,2000),
-            'panjang' => $this->faker->numberBetween(250,2000),
-            'tinggi' => $this->faker->numberBetween(250,2000),
-            'plat_kendaraan' => 'D '.$this->faker->firstName.' XXX',
+            'kapasitas' => $this->faker->numberBetween(500,2000),
+            'lebar' => $this->faker->numberBetween(100,500),
+            'panjang' => $this->faker->numberBetween(100,500),
+            'tinggi' => $this->faker->numberBetween(100,500),
+            'plat_kendaraan' => 'X '.$this->faker->firstName.' XXX',
             'status' => 'Tersedia',
         ];
     }
