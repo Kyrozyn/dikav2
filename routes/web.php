@@ -77,4 +77,4 @@ Route::middleware(['cekLogin'])->group(function () {
 });
 
 Route::get('rek', [Rekomendasi::class, 'rek']);
-Route::get('rekomendasi/kendaraan/{kendaraan}', [Rekomendasi::class, 'testrekomendasi']);
+Route::get('rekomendasi/kendaraan/{kendaraan}/{opsi}', [Rekomendasi::class, 'rekomendasiv2']);
