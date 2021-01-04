@@ -17,7 +17,7 @@
             {{Aire::open()->action(url('pengiriman/baru'))}}
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
-                    {{Aire::input('no_resi','No Resi')->id('no_resi')->defaultValue('B'.$count)->readOnly()}}
+                    {{Aire::input('no_resi','No Resi')->id('no_resi')->defaultValue('B'.$count)}}
                 </div>
             </div>
             <div class="row">
