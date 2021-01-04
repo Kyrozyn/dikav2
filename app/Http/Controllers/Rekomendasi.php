@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\invoice;
 use App\Models\invoice_pengiriman;
 use DVDoug\BoxPacker\InfalliblePacker;
+use DVDoug\BoxPacker\PackedBoxList;
 use DVDoug\BoxPacker\Packer;
 use DVDoug\BoxPacker\Test\TestBox;
 use DVDoug\BoxPacker\Test\TestItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use function Ramsey\Uuid\v1;
 
 class Rekomendasi extends Controller
@@ -253,26 +255,23 @@ class Rekomendasi extends Controller
         }
 
         $packedBoxes = $packer->pack();
-//        echo "These items fitted into " . count($packedBoxes) . " box(es)" . "<br>";
-//        echo "Barang yang tidak di packing = ". print_r($packer->getUnpackedItems(),1)."<br>";
-//        foreach ($packedBoxes as $key=>$packedBox) {
-//            echo "=======================================<br>";
-//            echo "        Box Ke-".$key."                <br>";
-//            echo "=======================================<br>";
-//            $boxType = $packedBox->getBox(); // your own box object, in this case TestBox
-//            echo "This box is a {$boxType->getReference()}, it is {$boxType->getOuterWidth()}mm wide, {$boxType->getOuterLength()}mm long and {$boxType->getOuterDepth()}mm high" . "<br>";
-//            echo "The combined weight of this box and the items inside it is {$packedBox->getWeight()}g" . "<br>";
-//
-//            echo "The items in this box are:" . "<br>";
-//            $packedItems = $packedBox->getItems();
-//            foreach ($packedItems as $key => $packedItem) { // $packedItem->getItem() is your own item object, in this case TestItem
-//                $keys = $key+1;
-//                echo $keys.". ".$packedItem->getItem()->getDescription() . "<br>";
-//                echo "x = ".$packedItem->getX() . " ";
-//                echo "y = ".$packedItem->getY() . " ";
-//                echo "z = ".$packedItem->getZ() . " <br>";
-//            }
-//        }
+        foreach ($packedBoxes as $key => $b){
+            $filling = abs(100*(($b->getUsedVolume()/$b->getInnerVolume())-($b->getItems()->count()/$pengirimans->count())));
+            if($key==0){
+                $packedBoxes->getIterator()[0]->rekomendasi = 0;
+                $packedBoxes->getIterator()[0]->rekomendasivalue = $filling;
+            }
+            else{
+                debug($filling." > ".$packedBoxes->getIterator()[0]->rekomendasivalue);
+
+                if($filling > $packedBoxes->getIterator()[0]->rekomendasivalue){
+                    $packedBoxes->getIterator()[0]->rekomendasi = $key;
+                    $packedBoxes->getIterator()[0]->rekomendasivalue = $filling;
+                }
+            }
+            debug("Rekomendasi : ". $packedBoxes->getIterator()[0]->rekomendasi);
+            $packedBoxes->getIterator()[$key]->filling= $filling;
+        }
         return $packedBoxes;
     }
 
@@ -281,4 +280,6 @@ class Rekomendasi extends Controller
         $k = \App\Models\kendaraan::whereIdKendaraan($kendaraan)->first();
         return view('rekomendasi.rekomendasipilihv2',['k'=>$k,'box'=>$box,'opsi'=>$opsi]);
     }
+
+
 }

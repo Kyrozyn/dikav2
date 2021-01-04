@@ -63,10 +63,15 @@
                                 <div class="col-md-12">
                                     <select id="rekomendasi" name="rekomendasi" class="form-control">
                                         @foreach($box as $key => $boxx)
-                                            @if($opsi == $key)
-                                                <option selected value="{{url('/rekomendasi/kendaraan'.'/'.$k->id_kendaraan.'/'.$key)}}">Rekomendasi {{$key+1}}</option>
+                                            @if($box->getIterator()[0]->rekomendasi == $key)
+                                                @php($e = 'Filling = '.$boxx->filling.' (Direkomendasikan)')
                                             @else
-                                                <option value="{{url('/rekomendasi/kendaraan'.'/'.$k->id_kendaraan.'/'.$key)}}">Rekomendasi {{$key+1}}</option>
+                                                @php($e = 'Filling ='.$boxx->filling)
+                                            @endif
+                                            @if($opsi == $key)
+                                                <option selected value="{{url('/rekomendasi/kendaraan'.'/'.$k->id_kendaraan.'/'.$key)}}">Rekomendasi {{$key+1}} {{$e}}</option>
+                                            @else
+                                                <option value="{{url('/rekomendasi/kendaraan'.'/'.$k->id_kendaraan.'/'.$key)}}">Rekomendasi {{$key+1}} {{$e}}</option>
                                             @endif
                                         @endforeach
                                     </select>
