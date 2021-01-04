@@ -33,7 +33,7 @@
                     <td>{{$key+1}}</td>
                     <td>{{$kendaraan->nama_kendaraan}}</td>
                     <td>{{$kendaraan->kapasitas}} Kg</td>
-                    <td><a href="{{url('/rekomendasi/kendaraan/'.$kendaraan->id_kendaraan)}}" class="btn btn-primary btn-sm">Rekomendasi Pengiriman</a> </td>
+                    <td><a href="{{url('/rekomendasi/kendaraan/'.$kendaraan->id_kendaraan)}}/0" class="btn btn-primary btn-sm">Rekomendasi Pengiriman</a> </td>
                 </tr>
                 @endforeach
                 </tbody>
