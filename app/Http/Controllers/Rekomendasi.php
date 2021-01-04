@@ -262,7 +262,7 @@ class Rekomendasi extends Controller
                 $packedBoxes->getIterator()[0]->rekomendasivalue = $filling;
             }
             else{
-                debug($filling." > ".$packedBoxes->getIterator()[0]->rekomendasivalue);
+//                debug($filling." > ".$packedBoxes->getIterator()[0]->rekomendasivalue);
 
                 if($filling > $packedBoxes->getIterator()[0]->rekomendasivalue){
                     $packedBoxes->getIterator()[0]->rekomendasi = $key;
