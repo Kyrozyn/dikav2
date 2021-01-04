@@ -269,7 +269,7 @@ class Rekomendasi extends Controller
                     $packedBoxes->getIterator()[0]->rekomendasivalue = $filling;
                 }
             }
-            debug("Rekomendasi : ". $packedBoxes->getIterator()[0]->rekomendasi);
+//            debug("Rekomendasi : ". $packedBoxes->getIterator()[0]->rekomendasi);
             $packedBoxes->getIterator()[$key]->filling= $filling;
         }
         return $packedBoxes;
