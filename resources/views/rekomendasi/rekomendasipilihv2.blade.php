@@ -13,6 +13,7 @@
             </h1>
         </section>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
         <!-- Main content -->
         <section class="content container-fluid">
             <!--------------------------
@@ -102,6 +103,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @php($jumlahx = $jumlahy = 0)
                         @foreach($box->getIterator()[$opsi]->getItems() as $a => $barang)
                             <tr>
                                 <td>{{$a+1}}</td>
@@ -111,6 +113,10 @@
                                 <td>{{$barang->getY()}}</td>
                                 <td>{{$barang->getZ()}}</td>
                                 <td>{{$barang->getVolume()}} cm³</td>
+                                @if($barang->getZ() ==0)
+                                @php($jumlahx = $jumlahx+$barang->getX())
+                                @php($jumlahy = $jumlahy+$barang->getY())
+                                @endif
                                 {{--                        <td><a href="{{url('/rekomendasi/kendaraan/'.$kendaraan->id_kendaraan)}}" class="btn btn-primary btn-sm">Rekomendasi Pengiriman</a> </td>--}}
                             </tr>
                         @endforeach
@@ -118,10 +124,31 @@
                     </table>
                 </div>
             </div>
+            <div class="row mt-3">
+                <div id="visualize" style="padding: 30px"></div>
+            </div>
         </section>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+        <script>
+            let vs = document.getElementById('visualize');
+            const app = new PIXI.Application({antialias: true, transparent: true, width: {{$jumlahx}}, height: {{$jumlahy}}});
+            vs.appendChild(app.view);
+            const graph = new PIXI.Graphics;
+            @foreach($box->getIterator()[$opsi]->getItems() as $a => $barang)
+            var randomColor = Math.floor(Math.random()*16777215).toString(16);
+            var color = "0x" + randomColor;
+            graph.beginFill(color);
+            graph.drawRect({{$barang->getX()}}, {{$barang->getY()}}, {{$barang->getWidth()}}, {{$barang->getLength()}});
+            graph.endFill();
+            @endforeach
+            app.stage.addChild(graph);
+        </script>
         <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" charset="utf8"
                 src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js">
+        </script>
+
         <script>
             $(document).ready(function () {
                 $.noConflict();
