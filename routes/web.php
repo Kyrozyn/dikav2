@@ -47,10 +47,10 @@ Route::middleware(['cekLogin'])->group(function () {
 
 //rekomendasi
 Route::middleware(['cekLogin'])->group(function () {
-    Route::get('rekomendasi', [Rekomendasi::class, 'rekomendasiawal'])->name('hitung');
+    Route::get('rekomendasi', [Rekomendasi::class, 'rekomendasiawal'])->name('rekomendasi');
 //    Route::get('rekomendasi/kendaraan/{kendaraan}', [Rekomendasi::class, 'rekomendasipilih'])->name('hitung');
-    Route::get('rekomendasi/kendaraan/{kendaraan}/invoice', [Rekomendasi::class, 'invoice'])->name('hitung');
-    Route::post('rekomendasi/kendaraan/{kendaraan}/invoice', [Rekomendasi::class, 'buatinvoice'])->name('hitung');
+    Route::get('rekomendasi/kendaraan/{kendaraan}/invoice/{opsi}', [Rekomendasi::class, 'invoice'])->name('rekomendasi.invoice');
+    Route::post('rekomendasi/kendaraan/{kendaraan}/invoice/{opsi}', [Rekomendasi::class, 'buatinvoicebaru'])->name('rekomendasi.post');
 });
 
 //akun
@@ -78,3 +78,4 @@ Route::middleware(['cekLogin'])->group(function () {
 
 Route::get('rek', [Rekomendasi::class, 'rek']);
 Route::get('rekomendasi/kendaraan/{kendaraan}/{opsi}', [Rekomendasi::class, 'rekomendasiv2']);
+Route::get('laporaninvoice/{id}', [Invoice::class, 'laporaninvoice']);

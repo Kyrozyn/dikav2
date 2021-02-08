@@ -48,6 +48,7 @@ namespace App\Models{
  * @property string $tgl_kirim
  * @property string $status
  * @property int $id_kendaraan
+ * @property-read \App\Models\kendaraan $kendaraan
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\pengiriman[] $pengiriman
  * @property-read int|null $pengiriman_count
  * @method static \Illuminate\Database\Eloquent\Builder|invoice newModelQuery()
@@ -67,11 +68,19 @@ namespace App\Models{
  *
  * @property string $invoice_id_invoice
  * @property string $pengiriman_no_resi
+ * @property string $posisix
+ * @property string $posisiy
+ * @property string $posisiz
+ * @property string $volume
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman query()
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman whereInvoiceIdInvoice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman wherePengirimanNoResi($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman wherePosisix($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman wherePosisiy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman wherePosisiz($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman whereVolume($value)
  */
 	class invoice_pengiriman extends \Eloquent {}
 }

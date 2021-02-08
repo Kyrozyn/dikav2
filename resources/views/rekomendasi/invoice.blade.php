@@ -1,5 +1,6 @@
 <?php
 /** @var \App\Models\kendaraan $k */
+/** @var \DVDoug\BoxPacker\PackedBoxList $rekomendasi */
 /** @var */
 ?>
 @extends('template')
@@ -23,15 +24,15 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Total Berat</h5>
-                            <p class="card-text text-bold">{{$totalWt}} Kg</p>
+                            <p class="card-text text-bold">{{$rekomendasi->getIterator()[$opsi]->getWeight()}} Kg</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title ">Total Harga</h5>
-                            <p class="card-text text-bold">Rp. {{number_format($totalVal,0,',','.')}}</p>
+                            <h5 class="card-title ">Total Volume Barang</h5>
+                            <p class="card-text text-bold">{{$rekomendasi->getIterator()[$opsi]->getUsedVolume()}} cm³</p>
                         </div>
                     </div>
                 </div>
@@ -39,8 +40,16 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title ">Jumlah Barang</h5>
-                            <p class="card-text text-bold">{{count($pickedItems)}}</p>
+                            <p class="card-text text-bold">{{$rekomendasi->getIterator()[$opsi]->getItems()->count()}}</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card-body">
+                        <h5 class="card-title">Rekomendasi</h5>
+                        <p class="card-text text-bold">Filling : {{$rekomendasi->getIterator()[$opsi]->filling}}</p>
                     </div>
                 </div>
             </div>
@@ -52,6 +61,7 @@
             </div>
             <div class="row">
                 <div class="col col-sm-12 col-lg-6">
+                    {{Aire::hidden('opsi',$opsi)}}
                     {{Aire::submit('Buat Invoice')}}
                 </div>
             </div>

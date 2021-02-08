@@ -13,6 +13,6 @@ class pengiriman extends Model
     protected $keyType = 'string';
 
     public function invoice(){
-        return $this->belongsToMany('App\Models\invoice','invoice_pengirimen');
+        return $this->belongsToMany('App\Models\invoice','invoice_pengirimen')->withPivot(['posisix','posisiy','posisiz','volume']);
     }
 }

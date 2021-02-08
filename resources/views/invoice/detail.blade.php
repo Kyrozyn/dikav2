@@ -62,6 +62,10 @@
                             <th>No Resi</th>
                             <th>Harga</th>
                             <th>Berat</th>
+                            <th>Posisi X</th>
+                            <th>Posisi Y</th>
+                            <th>Posisi Z</th>
+                            <th>Volume</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -76,6 +80,10 @@
                                 <td><a href="{{url('/pengiriman/show?')}}{{$key->no_resi}}">{{$key->no_resi}}</a></td>
                                 <td>Rp. {{number_format($key->harga,0,',','.')}}</td>
                                 <td>{{$key->berat}} Kg</td>
+                                <td>{{$key->pivot->posisix}}</td>
+                                <td>{{$key->pivot->posisiy}}</td>
+                                <td>{{$key->pivot->posisiz}}</td>
+                                <td>{{$key->pivot->volume}}</td>
                                 {{--                        <td><a href="{{url('/rekomendasi/kendaraan/'.$kendaraan->id_kendaraan)}}" class="btn btn-primary btn-sm">Rekomendasi Pengiriman</a> </td>--}}
                             </tr>
                         @endforeach

@@ -52,4 +52,11 @@ class Invoice extends Controller
         }
         return redirect('/invoice/verifikasi/')->with('pesan','Invoice berhasil ditolak');
     }
+
+    public function laporaninvoice($id)
+    {
+        $invoice = \App\Models\invoice::whereIdInvoice($id)->first();
+        $kendaraan = \App\Models\kendaraan::whereIdKendaraan($invoice->id_kendaraan)->first();
+        return view('laporan.invoice',compact('invoice','kendaraan'));
+    }
 }

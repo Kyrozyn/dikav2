@@ -16,6 +16,10 @@ class CreateInvoicePengirimenTable extends Migration
         Schema::create('invoice_pengirimen', function (Blueprint $table) {
             $table->string('invoice_id_invoice');
             $table->string('pengiriman_no_resi');
+            $table->string('posisix');
+            $table->string('posisiy');
+            $table->string('posisiz');
+            $table->string('volume');
         });
     }
 

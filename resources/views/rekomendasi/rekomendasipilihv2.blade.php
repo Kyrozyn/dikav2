@@ -43,7 +43,7 @@
 {{--                            <p class="card-text text-bold">--}}
                             <div class="row">
                                 <div class="col-6">
-                                    <a href="{{url('/rekomendasi/kendaraan/'.$k->id_kendaraan.'/invoice')}}" class="btn btn-primary btn-sm" onclick="return confirm('Apakah anda yakin?')">Buat Invoice Pengiriman</a>
+                                    <a href="{{url('/rekomendasi/kendaraan/'.$k->id_kendaraan.'/invoice/'.$opsi)}}" class="btn btn-primary btn-sm" onclick="return confirm('Apakah anda yakin?')">Buat Invoice Pengiriman</a>
                                 </div>
                                 <div class="col-6">
                                     <a href="{{url('/rekomendasi')}}" class="btn btn-danger btn-sm">Batalkan Rekomendasi</a>
