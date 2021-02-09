@@ -97,4 +97,10 @@ class Pengiriman extends Controller
             return redirect('pengiriman/lihat')->with('pesan','Data gagal dihapus! Pesan :'.$e->getMessage());
         }
     }
+
+    public function cetakresi($noresi)
+    {
+        $pengiriman = \App\Models\pengiriman::whereNoResi($noresi)->first();
+        return view('laporan.resi',compact('pengiriman'));
+    }
 }

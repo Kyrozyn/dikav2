@@ -79,3 +79,4 @@ Route::middleware(['cekLogin'])->group(function () {
 Route::get('rek', [Rekomendasi::class, 'rek']);
 Route::get('rekomendasi/kendaraan/{kendaraan}/{opsi}', [Rekomendasi::class, 'rekomendasiv2']);
 Route::get('laporaninvoice/{id}', [Invoice::class, 'laporaninvoice']);
+Route::get('laporanresi/{id}', [Pengiriman::class, 'cetakresi']);
