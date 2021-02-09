@@ -8,7 +8,7 @@ class Akun extends Controller
 {
     public function login(Request $req){
         if($req->session()->exists('username')){
-            return redirect('/pengiriman/lihatv2');
+            return redirect('/dashboard');
         }
         return view('akun/login');
     }
@@ -24,10 +24,10 @@ class Akun extends Controller
             $req->session()->put('username', $akundb->username);
             $req->session()->put('role', $akundb->role);
             if($akundb->role == 'Direktur'){
-                return redirect('/invoice/verifikasi');
+                return redirect('/dashboard');
             }
             else{
-                return redirect('/pengiriman/lihatv2');
+                return redirect('/dashboard');
             }
 
         }

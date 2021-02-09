@@ -1,4 +1,6 @@
 <ul class="sidebar-menu" data-widget="tree">
+    <li class="header">Dashboard</li>
+    <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a href="{{url('dashboard')}}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
     <li class="header">Pengiriman</li>
     <!-- Optionally, you can add icons to the links -->
     <li class="{{ Request::is('pengiriman/baru') ? 'active' : '' }}"><a href="{{url('/pengiriman/baru')}}"><i class="fa fa-send"></i> <span>Pengiriman Baru</span></a></li>
