@@ -1,6 +1,6 @@
 <?php
 /** @var \DVDoug\BoxPacker\PackedBoxList $box */
-/** @var \App\Models\kendaraan $k*/
+/** @var \App\Models\kendaraan $k */
 ?>
 @extends('template')
 @section('content')
@@ -13,7 +13,8 @@
             </h1>
         </section>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
         <!-- Main content -->
         <section class="content container-fluid">
             <!--------------------------
@@ -40,16 +41,19 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title ">Aksi</h5>
-{{--                            <p class="card-text text-bold">--}}
+                            {{--                            <p class="card-text text-bold">--}}
                             <div class="row">
                                 <div class="col-6">
-                                    <a href="{{url('/rekomendasi/kendaraan/'.$k->id_kendaraan.'/invoice/'.$opsi)}}" class="btn btn-primary btn-sm" onclick="return confirm('Apakah anda yakin?')">Buat Invoice Pengiriman</a>
+                                    <a href="{{url('/rekomendasi/kendaraan/'.$k->id_kendaraan.'/invoice/'.$opsi)}}"
+                                       class="btn btn-primary btn-sm" onclick="return confirm('Apakah anda yakin?')">Buat
+                                        Invoice Pengiriman</a>
                                 </div>
                                 <div class="col-6">
-                                    <a href="{{url('/rekomendasi')}}" class="btn btn-danger btn-sm">Batalkan Rekomendasi</a>
+                                    <a href="{{url('/rekomendasi')}}" class="btn btn-danger btn-sm">Batalkan
+                                        Rekomendasi</a>
                                 </div>
                             </div>
-{{--                            </p>--}}
+                            {{--                            </p>--}}
                         </div>
                     </div>
                 </div>
@@ -70,9 +74,13 @@
                                                 @php($e = 'Filling ='.$boxx->filling)
                                             @endif
                                             @if($opsi == $key)
-                                                <option selected value="{{url('/rekomendasi/kendaraan'.'/'.$k->id_kendaraan.'/'.$key)}}">Rekomendasi {{$key+1}} {{$e}}</option>
+                                                <option selected
+                                                        value="{{url('/rekomendasi/kendaraan'.'/'.$k->id_kendaraan.'/'.$key)}}">
+                                                    Rekomendasi {{$key+1}} {{$e}}</option>
                                             @else
-                                                <option value="{{url('/rekomendasi/kendaraan'.'/'.$k->id_kendaraan.'/'.$key)}}">Rekomendasi {{$key+1}} {{$e}}</option>
+                                                <option
+                                                    value="{{url('/rekomendasi/kendaraan'.'/'.$k->id_kendaraan.'/'.$key)}}">
+                                                    Rekomendasi {{$key+1}} {{$e}}</option>
                                             @endif
                                         @endforeach
                                     </select>
@@ -107,15 +115,17 @@
                         @foreach($box->getIterator()[$opsi]->getItems() as $a => $barang)
                             <tr>
                                 <td>{{$a+1}}</td>
-                                <td><a href="{{url('/pengiriman/show?')}}{{$barang->getItem()->getDescription()}}">{{$barang->getItem()->getDescription()}}</a></td>
+                                <td>
+                                    <a href="{{url('/pengiriman/show?')}}{{$barang->getItem()->getDescription()}}">{{$barang->getItem()->getDescription()}}</a>
+                                </td>
                                 <td>{{$barang->getItem()->getWeight()}} Kg</td>
                                 <td>{{$barang->getX()}}</td>
                                 <td>{{$barang->getY()}}</td>
                                 <td>{{$barang->getZ()}}</td>
                                 <td>{{$barang->getVolume()}} cm³</td>
                                 @if($barang->getZ() ==0)
-                                @php($jumlahx = $jumlahx+$barang->getX())
-                                @php($jumlahy = $jumlahy+$barang->getY())
+                                    @php($jumlahx = $jumlahx+$barang->getX())
+                                    @php($jumlahy = $jumlahy+$barang->getY())
                                 @endif
                                 {{--                        <td><a href="{{url('/rekomendasi/kendaraan/'.$kendaraan->id_kendaraan)}}" class="btn btn-primary btn-sm">Rekomendasi Pengiriman</a> </td>--}}
                             </tr>
@@ -131,11 +141,15 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
         <script>
             let vs = document.getElementById('visualize');
-            const app = new PIXI.Application({antialias: true, transparent: true, width: {{$jumlahx}}, height: {{$jumlahy}}});
+            const app = new PIXI.Application({
+                antialias: true,
+                transparent: true,
+                width: {{$jumlahx}},
+                height: {{$jumlahy}}});
             vs.appendChild(app.view);
             const graph = new PIXI.Graphics;
             @foreach($box->getIterator()[$opsi]->getItems() as $a => $barang)
-            var randomColor = Math.floor(Math.random()*16777215).toString(16);
+            var randomColor = Math.floor(Math.random() * 16777215).toString(16);
             var color = "0x" + randomColor;
             graph.beginFill(color);
             graph.drawRect({{$barang->getX()}}, {{$barang->getY()}}, {{$barang->getWidth()}}, {{$barang->getLength()}});

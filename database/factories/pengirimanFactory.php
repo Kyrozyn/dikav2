@@ -28,7 +28,7 @@ class pengirimanFactory extends Factory
             'alamat' => $this->faker->address,
             'no_telp_pengirim' => $this->faker->e164PhoneNumber,
             'no_telp_penerima' => $this->faker->e164PhoneNumber,
-            'tgl_masuk' => $this->faker->date(),
+            'tgl_masuk' => $this->faker->dateTimeBetween('-90 days'),
             'deskripsi' => $this->faker->sentence(2),
             'berat' => $this->faker->numberBetween(1,20),
             'lebar' => $this->faker->numberBetween(1,20),

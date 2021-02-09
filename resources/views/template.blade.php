@@ -158,6 +158,7 @@ desired effect
 <!-- AdminLTE App -->
 <script src="{{url('dist/js/adminlte.min.js')}}"></script>
 @livewireScripts
+@yield('script')
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
