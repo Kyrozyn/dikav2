@@ -108,6 +108,7 @@
                             <th>Posisi Y</th>
                             <th>Posisi Z</th>
                             <th>Volume</th>
+                            <th>Warna</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -127,6 +128,7 @@
                                     @php($jumlahx = $jumlahx+$barang->getX())
                                     @php($jumlahy = $jumlahy+$barang->getY())
                                 @endif
+                                <td style="background-color: {{$barang->color}}">{{$barang->color}}</td>
                                 {{--                        <td><a href="{{url('/rekomendasi/kendaraan/'.$kendaraan->id_kendaraan)}}" class="btn btn-primary btn-sm">Rekomendasi Pengiriman</a> </td>--}}
                             </tr>
                         @endforeach
@@ -134,6 +136,12 @@
                     </table>
                 </div>
             </div>
+            <section class="content-header">
+                <h1>
+                    Rekomendasi Penataan
+                    <small></small>
+                </h1>
+            </section>
             <div class="row mt-3">
                 <div id="visualize" style="padding: 30px"></div>
             </div>
@@ -145,16 +153,20 @@
                 antialias: true,
                 transparent: true,
                 width: {{$jumlahx}},
-                height: {{$jumlahy}}});
+                {{--height: {{$jumlahy}}--}}
+            });
             vs.appendChild(app.view);
             const graph = new PIXI.Graphics;
             @foreach($box->getIterator()[$opsi]->getItems() as $a => $barang)
-            var randomColor = Math.floor(Math.random() * 16777215).toString(16);
-            var color = "0x" + randomColor;
+            var randomColor = "{{$barang->color}}"
+            var rc = randomColor.replace("#", "0x")
+            var color = rc;
             graph.beginFill(color);
             graph.drawRect({{$barang->getX()}}, {{$barang->getY()}}, {{$barang->getWidth()}}, {{$barang->getLength()}});
             graph.endFill();
             @endforeach
+                app.stage.scale.x = 8
+            app.stage.scale.y = 8
             app.stage.addChild(graph);
         </script>
         <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

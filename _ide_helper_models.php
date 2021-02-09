@@ -72,15 +72,21 @@ namespace App\Models{
  * @property string $posisiy
  * @property string $posisiz
  * @property string $volume
+ * @property string $warna
+ * @property string $width
+ * @property string $length
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman query()
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman whereInvoiceIdInvoice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman whereLength($value)
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman wherePengirimanNoResi($value)
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman wherePosisix($value)
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman wherePosisiy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman wherePosisiz($value)
  * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman whereVolume($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman whereWarna($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|invoice_pengiriman whereWidth($value)
  */
 	class invoice_pengiriman extends \Eloquent {}
 }

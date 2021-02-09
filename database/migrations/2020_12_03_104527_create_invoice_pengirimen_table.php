@@ -20,6 +20,9 @@ class CreateInvoicePengirimenTable extends Migration
             $table->string('posisiy');
             $table->string('posisiz');
             $table->string('volume');
+            $table->string('warna');
+            $table->string('width');
+            $table->string('length');
         });
     }
 

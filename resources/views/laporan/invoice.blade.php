@@ -12,6 +12,11 @@
     <title>Print Invoice</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        body{
+            -webkit-print-color-adjust:exact;
+        }
+    </style>
 </head>
 <body>
 <div class="row">
@@ -62,9 +67,11 @@
                 <th>Posisi Y</th>
                 <th>Posisi Z</th>
                 <th>Volume</th>
+                <th>Warna</th>
             </tr>
             </thead>
             <tbody>
+            @php($jumlahx= $jumlahy= 0 )
             @foreach($invoice->pengiriman as $no => $pengiriman)
             <tr>
                 <td>{{$no+1}}</td>
@@ -75,16 +82,53 @@
                 <td>{{$pengiriman->pivot->posisix}}</td>
                 <td>{{$pengiriman->pivot->posisiy}}</td>
                 <td>{{$pengiriman->pivot->posisiz}}</td>
-                <td>{{$pengiriman->pivot->volume}}</td>
+                <td>{{$pengiriman->pivot->volume}} cm³</td>
+                <td style="background-color: {{$pengiriman->pivot->warna}};color: {{$pengiriman->pivot->warna}}">{{$pengiriman->pivot->warna}}</td>
+                @if($pengiriman->pivot->posisiz ==0)
+                    @php($jumlahx = $jumlahx+$pengiriman->pivot->posisix)
+                    @php($jumlahy = $jumlahy+$pengiriman->pivot->posisiy)
+                @endif
             </tr>
             @endforeach
             </tbody>
         </table>
     </div>
-    <div class="row">
-        <h6>Dicetak pada tanggal {{date('d-m-Y')}} jam {{date("h:i:sa")}}</h6>
-    </div>
 </div>
+<section class="content-header">
+    <h1>
+        Rekomendasi Penataan
+        <small></small>
+    </h1>
+</section>
+<div class="row mt-3">
+    <div id="visualize" style="padding: 30px"></div>
+</div>
+<div class="row">
+    <h6>Dicetak pada tanggal {{date('d-m-Y')}} jam {{date("h:i:sa")}}</h6>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+<script>
+    let vs = document.getElementById('visualize');
+    const app = new PIXI.Application({
+        antialias: true,
+        transparent: true,
+        width: {{$jumlahx}},
+        {{--height: {{$jumlahy}}--}}
+    });
+    vs.appendChild(app.view);
+    const graph = new PIXI.Graphics;
+    @foreach($invoice->pengiriman  as $a => $barang)
+    var randomColor = "{{$barang->pivot->warna}}"
+    var rc = randomColor.replace("#", "0x")
+    var color = rc;
+    graph.beginFill(color);
+    graph.drawRect({{$barang->pivot->posisix}}, {{$barang->pivot->posisiy}}, {{$barang->pivot->width}}, {{$barang->pivot->length}});
+    graph.endFill();
+    @endforeach
+        app.stage.scale.x = 8
+    app.stage.scale.y = 8
+    app.stage.addChild(graph);
+</script>
     <script type="text/javascript">
         window.print();
 </script>

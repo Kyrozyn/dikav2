@@ -73,9 +73,11 @@
                             <th>Posisi Y</th>
                             <th>Posisi Z</th>
                             <th>Volume</th>
+                            <th>Warna</th>
                         </tr>
                         </thead>
                         <tbody>
+                        @php($jumlahx= $jumlahy= 0 )
                         @foreach($pengirimans as $a => $key)
                             <tr>
                                 <?php
@@ -91,6 +93,11 @@
                                 <td>{{$key->pivot->posisiy}}</td>
                                 <td>{{$key->pivot->posisiz}}</td>
                                 <td>{{$key->pivot->volume}}</td>
+                                    @if($key->pivot->posisiz ==0)
+                                        @php($jumlahx = $jumlahx+$key->pivot->posisix)
+                                        @php($jumlahy = $jumlahy+$key->pivot->posisiy)
+                                    @endif
+                                    <td style="background-color: {{$key->pivot->warna}}">{{$key->pivot->warna}}</td>
                                 {{--                        <td><a href="{{url('/rekomendasi/kendaraan/'.$kendaraan->id_kendaraan)}}" class="btn btn-primary btn-sm">Rekomendasi Pengiriman</a> </td>--}}
                             </tr>
                         @endforeach
@@ -103,6 +110,15 @@
                     </table>
                 </div>
             </div>
+            <section class="content-header">
+                <h1>
+                    Rekomendasi Penataan
+                    <small></small>
+                </h1>
+            </section>
+            <div class="row mt-3">
+                <div id="visualize" style="padding: 30px"></div>
+            </div>
         </section>
         <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" charset="utf8"
@@ -112,6 +128,29 @@
                 $.noConflict();
                 $('#table_id').DataTable();
             });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+        <script>
+            let vs = document.getElementById('visualize');
+            const app = new PIXI.Application({
+                antialias: true,
+                transparent: true,
+                width: {{$jumlahx}},
+                {{--height: {{$jumlahy}}--}}
+            });
+            vs.appendChild(app.view);
+            const graph = new PIXI.Graphics;
+            @foreach($pengirimans as $a => $barang)
+            var randomColor = "{{$barang->pivot->warna}}"
+            var rc = randomColor.replace("#", "0x")
+            var color = rc;
+            graph.beginFill(color);
+            graph.drawRect({{$barang->pivot->posisix}}, {{$barang->pivot->posisiy}}, {{$barang->pivot->width}}, {{$barang->pivot->length}});
+            graph.endFill();
+            @endforeach
+                app.stage.scale.x = 8
+            app.stage.scale.y = 8
+            app.stage.addChild(graph);
         </script>
         <!-- /.content -->
     </div>

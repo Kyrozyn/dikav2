@@ -12,7 +12,7 @@ class invoice extends Model
     public $timestamps = false;
     public $primaryKey = 'id_invoice';
     public function pengiriman(){
-        return $this->belongsToMany('App\Models\pengiriman','invoice_pengirimen')->withPivot(['posisix','posisiy','posisiz','volume']);
+        return $this->belongsToMany('App\Models\pengiriman','invoice_pengirimen')->withPivot(['posisix','posisiy','posisiz','volume','warna','width','length']);
     }
 
     public function kendaraan()

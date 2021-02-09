@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\invoice;
 use App\Models\invoice_pengiriman;
+use Colors\RandomColor;
 use DVDoug\BoxPacker\InfalliblePacker;
 use DVDoug\BoxPacker\PackedBoxList;
 use DVDoug\BoxPacker\Packer;
@@ -83,6 +84,9 @@ class Rekomendasi extends Controller
             }
 //            debug("Rekomendasi : ". $packedBoxes->getIterator()[0]->rekomendasi);
             $packedBoxes->getIterator()[$key]->filling= $filling;
+            foreach($packedBoxes->getIterator()[$key]->getItems() as $k => $item){
+                $packedBoxes->getIterator()[$key]->getItems()->getIterator()[$k]->color = RandomColor::one();
+            }
         }
         return $packedBoxes;
     }
@@ -110,6 +114,9 @@ class Rekomendasi extends Controller
             $jadwalinvoice->posisiy = $item->getY();
             $jadwalinvoice->posisiz = $item->getZ();
             $jadwalinvoice->volume = $item->getVolume();
+            $jadwalinvoice->warna = $item->color;
+            $jadwalinvoice->width = $item->getWidth();
+            $jadwalinvoice->length = $item->getLength();
             $jadwalinvoice->save();
             //
             $pengiriman = \App\Models\pengiriman::whereNoResi($item->getItem()->getDescription())->first();
