@@ -53,11 +53,13 @@
                     </div>
                 </div>
             </div>
+            @if($invoice->status == 'Diterima')
             <div class="row" style="padding-top: 10px">
                 <div class="col-12">
                     <a href="{{url('/laporaninvoice/'.$invoice->id_invoice)}}" class="btn btn-block btn-primary">Cetak Invoice</a>
                 </div>
             </div>
+            @endif
             <div class="row mt-3">
                 <div class="col-12">
                     <table id="table_id" class="display">
