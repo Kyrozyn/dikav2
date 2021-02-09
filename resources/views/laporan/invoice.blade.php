@@ -81,6 +81,12 @@
             </tbody>
         </table>
     </div>
+    <div class="row">
+        <h6>Dicetak pada tanggal {{date('d-m-Y')}} jam {{date("h:i:sa")}}</h6>
+    </div>
 </div>
+    <script type="text/javascript">
+        window.print();
+</script>
 </body>
 </html>
