@@ -92,9 +92,9 @@ class Pengiriman extends Controller
         $pengiriman = \App\Models\pengiriman::whereNoResi(array_key_first($_GET))->first();
         try {
             $pengiriman->delete();
-            return redirect('pengiriman/lihat')->with('pesan','Data Berhasil dihapus!');
+            return redirect('pengiriman/lihatv2')->with('pesan','Data Berhasil dihapus!');
         } catch (\Exception $e) {
-            return redirect('pengiriman/lihat')->with('pesan','Data gagal dihapus! Pesan :'.$e->getMessage());
+            return redirect('pengiriman/lihatv2')->with('pesan','Data gagal dihapus! Pesan :'.$e->getMessage());
         }
     }
 
