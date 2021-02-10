@@ -144,9 +144,10 @@
             var randomColor = "{{$barang->pivot->warna}}"
             var rc = randomColor.replace("#", "0x")
             var color = rc;
-            graph.beginFill(color);
+            graph.lineStyle(0.5, color, 1);
+            // graph.beginFill(color);
             graph.drawRect({{$barang->pivot->posisix}}, {{$barang->pivot->posisiy}}, {{$barang->pivot->width}}, {{$barang->pivot->length}});
-            graph.endFill();
+            // graph.endFill();
             @endforeach
                 app.stage.scale.x = 8
             app.stage.scale.y = 8
