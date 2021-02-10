@@ -82,3 +82,5 @@ Route::get('laporaninvoice/{id}', [Invoice::class, 'laporaninvoice']);
 Route::get('laporanresi/{id}', [Pengiriman::class, 'cetakresi']);
 
 Route::get('dashboard',[\App\Http\Controllers\Dashboard::class,'index']);
+Route::get('laporanpengiriman',[\App\Http\Controllers\Pengiriman::class,'laporankirim']);
+Route::post('laporanpengiriman',[\App\Http\Controllers\Pengiriman::class,'laporan'])->name('laporankirimpost');

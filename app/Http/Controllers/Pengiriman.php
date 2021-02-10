@@ -103,4 +103,17 @@ class Pengiriman extends Controller
         $pengiriman = \App\Models\pengiriman::whereNoResi($noresi)->first();
         return view('laporan.resi',compact('pengiriman'));
     }
+
+    public function laporan(Request $request)
+    {
+        $tanggal_awal = $request->post('tanggal_awal');
+        $tanggal_akhir = $request->post('tanggal_akhir');
+        $pengirimans = \App\Models\pengiriman::all()->whereBetween('tgl_masuk',[$tanggal_awal,$tanggal_akhir]);
+        return view('laporan.pengiriman',compact('pengirimans','tanggal_akhir','tanggal_awal'));
+    }
+
+    public function laporankirim()
+    {
+        return view('laporan.laporanpengiriman');
+    }
 }

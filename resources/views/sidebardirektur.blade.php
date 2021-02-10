@@ -6,6 +6,8 @@
     <li class="{{ Request::is('invoice') ? 'active' : '' }}"><a href="{{url('/invoice')}}"><i class="fa fa-send"></i> <span>Lihat Semua Invoice</span></a></li>
 
     <li class="header">Laporan</li>
+    <li class="{{ Request::is('invoice') ? 'active' : '' }}"><a href="{{url('/laporanpengiriman')}}"><i class="fa fa-book"></i> <span>Laporan Pengiriman</span></a></li>
+
     {{--    <li class="treeview">--}}
     {{--        <a href="#"><i class="fa fa-link"></i> <span>Pengiriman</span>--}}
     {{--            <span class="pull-right-container">--}}
