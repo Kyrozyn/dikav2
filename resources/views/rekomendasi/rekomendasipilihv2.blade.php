@@ -161,9 +161,11 @@
             var randomColor = "{{$barang->color}}"
             var rc = randomColor.replace("#", "0x")
             var color = rc;
-            graph.beginFill(color);
+            // graph.beginFill(color);
+            graph.lineStyle(0.5, color, 1);
+
             graph.drawRect({{$barang->getX()}}, {{$barang->getY()}}, {{$barang->getWidth()}}, {{$barang->getLength()}});
-            graph.endFill();
+            // graph.endFill();
             @endforeach
                 app.stage.scale.x = 8
             app.stage.scale.y = 8
