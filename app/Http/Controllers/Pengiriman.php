@@ -81,10 +81,10 @@ class Pengiriman extends Controller
         $pengiriman->status = $input['status'];
 
         if($pengiriman->save()){
-            return redirect('pengiriman/lihat')->with('pesan','Data berhasil diedit!');
+            return redirect('pengiriman/lihatv2')->with('pesan','Data berhasil diedit!');
         }
         else{
-            return redirect('pengiriman/lihat')->with('pesan','Data gagal diedit');
+            return redirect('pengiriman/lihatv2')->with('pesan','Data gagal diedit');
         }
     }
 
